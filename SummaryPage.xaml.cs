@@ -18,6 +18,7 @@ using System.Numerics;
 using System.Collections.ObjectModel;
 using Windows.UI.Xaml.Shapes;
 using Syncfusion.UI.Xaml.Charts;
+using Microsoft.Toolkit.Uwp.UI.Controls;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -32,6 +33,8 @@ namespace PortfolioAnalyst
         Compositor Comp = Window.Current.Compositor;
         SpringVector3NaturalMotionAnimation SpringAnimation;
         public ObservableCollection<AccountValue> AccountValues { get; set; } = new ObservableCollection<AccountValue>();
+        public ObservableCollection<Position> OpenPositions { get; set; } = new ObservableCollection<Position>();
+
 
 
         public SummaryPage()
@@ -48,13 +51,11 @@ namespace PortfolioAnalyst
 
             SpringAnimation.FinalValue = new Vector3(finalValue);
         }
-
         private void AllPositionsDataGrid_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             CreateOrUpdateSpringAnimation(1.0f);
             (sender as UIElement).StartAnimation(SpringAnimation);
         }
-
         private void AllPositionsDataGrid_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             CreateOrUpdateSpringAnimation(1.0f);
@@ -65,7 +66,6 @@ namespace PortfolioAnalyst
             base.OnNavigatedTo(e);
             PositionsModel = (PositionsAnalyzerModel)e.Parameter;
 
-            //AccountValues = new ObservableCollection<AccountValue>(PositionsModel.AccountValues);
             foreach (AccountValue accVal in PositionsModel.CumulativeRealized)
                 AccountValues.Add(accVal);
 
@@ -78,12 +78,45 @@ namespace PortfolioAnalyst
             
             series1.EnableAnimation = true;
             AccountPerformanceChart.Series.Add(series1);
-            //Positions = new ObservableCollection<Position>(PositionsModel.Positions);
+
+            foreach (Position pos_i in PositionsModel.OpenPositions)
+            {
+                OpenPositions.Add(pos_i);
+            }
+
         }
 
         private void AllPositionsDataGrid_Tapped(object sender, TappedRoutedEventArgs e)
         {
-
+            
         }
+
+        private void UpdatePositionsButton_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            int priceColIndex = 0;
+            int tickerColIndex = 0;
+            int colIndex = 0;
+            foreach(DataGridColumn col_i in CurrentPositionsDataGrid.Columns)
+            {
+                if ((string)col_i.Tag == "Price")
+                {
+                    priceColIndex = colIndex;
+                }
+                if ((string)col_i.Tag == "Ticker")
+                {
+                    tickerColIndex = colIndex;
+                }
+                ++colIndex;
+            }
+        }
+
+        private void CurrentPositionsDataGrid_CellEditEnded(object sender, DataGridCellEditEndedEventArgs e)
+        {
+        }
+
+        private void CurrentPositionsDataGrid_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
+        {
+        }
+
     }
 }

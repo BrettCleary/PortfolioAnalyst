@@ -19,7 +19,7 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <Grid.Resources>
@@ -138,7 +138,8 @@
 
         <Grid Grid.Row="0" Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
@@ -146,8 +147,75 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock x:Uid="YourBestPlaysString"/>
-            <controls:DataGrid Grid.Row="1" x:Name="BestPositionsDataGrid"></controls:DataGrid>
+            <TextBlock x:Uid="CurrentPortfolioString"/>
+            <!--Button x:Name="UpdatePositionsButton" Grid.Row="1" Content="Update Positions" HorizontalAlignment="Stretch" Tapped="UpdatePositionsButton_Tapped"/-->
+            <controls:DataGrid x:Name="CurrentPositionsDataGrid"
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                MaxColumnWidth="500"
+                GridLinesVisibility="None"
+                IsReadOnly="True"
+                ItemsSource="{x:Bind OpenPositions, Mode=TwoWay}"
+                x:DefaultBindMode="TwoWay"
+                CanUserResizeColumns="True"
+                CanUserSortColumns="True"
+                CanUserReorderColumns="True"
+                AlternatingRowBackground="LightGray"
+                CellEditEnded="CurrentPositionsDataGrid_CellEditEnded"
+                BeginningEdit="CurrentPositionsDataGrid_BeginningEdit">
+                <controls:DataGrid.Columns>
+                    <controls:DataGridTemplateColumn Header="Ticker" Tag="Ticker">
+                        <controls:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate x:DataType="local:Position">
+                                <TextBlock Text="{x:Bind Ticker}"/>
+                            </DataTemplate>
+                        </controls:DataGridTemplateColumn.CellTemplate>
+                    </controls:DataGridTemplateColumn>
+                    <controls:DataGridTemplateColumn Header="Price" Tag="Price" IsReadOnly="False" CanUserSort="True">
+                        <controls:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate x:DataType="local:Position">
+                                <TextBox Text="{x:Bind Price, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
+                            </DataTemplate>
+                        </controls:DataGridTemplateColumn.CellTemplate>
+                    </controls:DataGridTemplateColumn>
+                    <controls:DataGridTemplateColumn Header="Market Value" Tag="MarketValue">
+                        <controls:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate x:DataType="local:Position">
+                                <TextBlock Text="{x:Bind MarketValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            </DataTemplate>
+                        </controls:DataGridTemplateColumn.CellTemplate>
+                    </controls:DataGridTemplateColumn>
+                    <controls:DataGridTemplateColumn Header="Cost Basis" Tag="GrossBuy">
+                        <controls:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate x:DataType="local:Position">
+                                <TextBlock Text="{x:Bind GrossBuy}"/>
+                            </DataTemplate>
+                        </controls:DataGridTemplateColumn.CellTemplate>
+                    </controls:DataGridTemplateColumn>
+                    <controls:DataGridTemplateColumn Header="Profit/Loss" Tag="ProfitLoss">
+                        <controls:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate x:DataType="local:Position">
+                                <TextBlock Text="{x:Bind ProfitLoss}"/>
+                            </DataTemplate>
+                        </controls:DataGridTemplateColumn.CellTemplate>
+                    </controls:DataGridTemplateColumn>
+                    <controls:DataGridTemplateColumn Header="Profit/Loss Percent" Tag="ProfitLossPercent">
+                        <controls:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate x:DataType="local:Position">
+                                <TextBlock Text="{x:Bind ProfitLossPercent}"/>
+                            </DataTemplate>
+                        </controls:DataGridTemplateColumn.CellTemplate>
+                    </controls:DataGridTemplateColumn>
+                    <controls:DataGridTemplateColumn Header="Position" Tag="CurrentQuantity">
+                        <controls:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate x:DataType="local:Position">
+                                <TextBlock Text="{x:Bind CurrentQuantity}"/>
+                            </DataTemplate>
+                        </controls:DataGridTemplateColumn.CellTemplate>
+                    </controls:DataGridTemplateColumn>
+                </controls:DataGrid.Columns>
+            </controls:DataGrid>
         </Grid>
 
     </Grid>

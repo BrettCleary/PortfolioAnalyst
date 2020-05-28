@@ -15,11 +15,13 @@ namespace PortfolioAnalyst
         TradeParserModel TradeParser { get; set; }
         List<Trade> Trades { get; set; } = new List<Trade>();
         public List<AccountValue> CumulativeRealized { get; private set; } = new List<AccountValue>();
+        public List<Position> ExitedPositions { get; set; } = new List<Position>();
+        public List<Position> OpenPositions { get; set; } = new List<Position>();
         
 
         private PositionsAnalyzerModel()
         {
-            //GeneratePositions(csvPath);
+
         }
 
         public static async Task<PositionsAnalyzerModel> CreateAsync(string csvPath)
@@ -27,28 +29,51 @@ namespace PortfolioAnalyst
             PositionsAnalyzerModel model = new PositionsAnalyzerModel();
             bool ret = await model.GeneratePositions(csvPath);
             model.CalcCumulativeRealizedPerformance();
+            model.UpdatePortfolioWithMarketData();
             return model;
+        }
+
+        private void UpdatePortfolioWithMarketData()
+        {
+            foreach (Position pos_i in OpenPositions)
+            {
+                Random ran = new Random();
+                pos_i.Price = Math.Round(100.0, 2);
+            }
         }
 
         private void CalcCumulativeRealizedPerformance()
         {
-            List<AccountValue> exitedPositions = CreateExitedPositionList();
-            CalcCumulativePerformance(exitedPositions);
+            CreatePositionLists();
+            List<AccountValue> exitedPosRealized = CreateExitedPositionRealizedList();
+            CalcCumulativePerformance(exitedPosRealized);
         }
 
-        private List<AccountValue> CreateExitedPositionList()
+        private void CreatePositionLists()
         {
-            List<AccountValue> exitedPositionGainLoss = new List<AccountValue>();
             foreach (Position pos_i in Positions)
             {
                 bool positionIsClosed = pos_i.CurrentQuantity == 0;
                 if (positionIsClosed)
                 {
-                    AccountValue posGrossDate = new AccountValue();
-                    posGrossDate.time = pos_i.GetLastTrade().TradeDate;
-                    posGrossDate.value = pos_i.GrossProfit;
-                    exitedPositionGainLoss.Add(posGrossDate);
+                    ExitedPositions.Add(pos_i);
                 }
+                else
+                {
+                    OpenPositions.Add(pos_i);
+                }
+            }
+        }
+
+        private List<AccountValue> CreateExitedPositionRealizedList()
+        {
+            List<AccountValue> exitedPositionGainLoss = new List<AccountValue>();
+            foreach (Position pos_i in ExitedPositions)
+            {
+                AccountValue posGrossDate = new AccountValue();
+                posGrossDate.time = pos_i.GetLastTrade().TradeDate;
+                posGrossDate.value = pos_i.GrossProfit;
+                exitedPositionGainLoss.Add(posGrossDate);
             }
             return exitedPositionGainLoss;
         }
@@ -77,15 +102,10 @@ namespace PortfolioAnalyst
 
         private void CreatePositions()
         {
-            //Create Positions from Trades
-            //Position position = new Position(Trades);
-            //Positions.Add(position);
             string tickerLast = "noTicker";
             List<Trade> trade_iList = new List<Trade>();
             foreach (Trade trade_i in Trades)
             {
-                //List<Trade> trade_iList = new List<Trade>();
-                //trade_iList.Add(trade_i);
                 if (trade_i.Ticker != tickerLast)
                 {
                     if (trade_iList.Count > 0)

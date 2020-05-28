@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PortfolioAnalyst
 {
-    public class Position
+    public class Position : INotifyPropertyChanged
     {
         List<Trade> Trades;
         public string Ticker;
@@ -20,10 +21,38 @@ namespace PortfolioAnalyst
         public double IRR = 0;
         public double CurrentQuantity = 0;
 
+        private double _Price = -1;
+        public double Price { get { return _Price;  } 
+            set 
+            { 
+                _Price = value;
+                OnPriceChanged();
+            } 
+        }
+        public double MarketValue = -1;
+        public double ProfitLoss = -1;
+        public double ProfitLossPercent = -1;
+        public double CostBasis = -1;
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public Position(List<Trade> trades)
         {
             Trades = trades;
             InitializePosition();
+        }
+
+        private void OnPriceChanged()
+        {
+            MarketValue = _Price * CurrentQuantity;
+            CostBasis = GrossBuy - GrossSell;
+            ProfitLoss = MarketValue - CostBasis;
+            ProfitLossPercent = Math.Round(ProfitLoss / CostBasis * 100, 2);
+            EventArgs e = new EventArgs();
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MarketValue)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ProfitLoss)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ProfitLossPercent)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CostBasis)));
+
         }
 
         public Trade GetLastTrade()
