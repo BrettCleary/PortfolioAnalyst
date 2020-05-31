@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Syncfusion.Licensing;
+using Windows.Globalization;
 
 
 namespace PortfolioAnalyst
@@ -28,11 +29,14 @@ namespace PortfolioAnalyst
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
+        AppSettingsModel AppData = new AppSettingsModel();
+
         public App()
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MjYyNDQxQDMxMzgyZTMxMmUzMFYxQzNGc2liNXd4RSt6M3hDYkladk56SURuUENVQWNrcFFFOTdsSEFzWk09");
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            //bool loaded = await AppData.LoadSettingsFromXML();
         }
 
         /// <summary>
@@ -40,8 +44,14 @@ namespace PortfolioAnalyst
         /// will be used such as when the application is launched to open a specific file.
         /// </summary>
         /// <param name="e">Details about the launch request and process.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
+            bool loaded = await AppData.LoadSettingsFromXML();
+            if (loaded)
+            {
+                ApplicationLanguages.PrimaryLanguageOverride = AppData.LanguageCode;
+            }
+
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
@@ -70,6 +80,8 @@ namespace PortfolioAnalyst
                     // configuring the new page by passing required information as a navigation
                     // parameter
                     rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                    MainPage mainPage = (MainPage)rootFrame.Content;
+                    mainPage.InitializeMainPage(AppData);
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();

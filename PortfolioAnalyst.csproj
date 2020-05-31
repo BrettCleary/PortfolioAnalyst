@@ -130,6 +130,7 @@
       <DependentUpon>PerformanceGraphPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PositionsAnalyzerModel.cs" />
+    <Compile Include="SettingsXMLHelper.cs" />
     <Compile Include="SummaryPage.xaml.cs">
       <DependentUpon>SummaryPage.xaml</DependentUpon>
     </Compile>

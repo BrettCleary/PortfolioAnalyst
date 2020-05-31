@@ -28,6 +28,7 @@ namespace PortfolioAnalyst
     public sealed partial class MainPage : Page
     {
         PositionsAnalyzerModel PositionsModel;
+        AppSettingsModel AppData;
 
         public MainPage()
         {
@@ -35,12 +36,14 @@ namespace PortfolioAnalyst
             bool success;
             //PositionsModel = new PositionsAnalyzerModel("C:\\Users\\brett\\AppData\\Local\\Packages\\ff69270a-36c5-460e-b566-4fd9f0f640c8_sz704ddpb1q5c\\LocalState\\AllPositionData.csv");
             MainPageFrame.Navigate(typeof(LoadScreenPage));
-            InitializeMainPage();
+            //InitializeMainPage();
         }
 
-        public async Task<bool> InitializeMainPage()
+        public async Task<bool> InitializeMainPage(AppSettingsModel appData)
         {
-            PositionsModel = await PositionsAnalyzerModel.CreateAsync("AllTrades.csv");
+            AppData = appData;
+            //bool loaded = await AppData.LoadSettingsFromXML();
+            PositionsModel = await PositionsAnalyzerModel.CreateAsync("AllTrades.csv", AppData);
             MainPageFrame.Navigate(typeof(SummaryPage), PositionsModel);
             return true;
         }

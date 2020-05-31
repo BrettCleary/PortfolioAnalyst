@@ -15,7 +15,9 @@ namespace PortfolioAnalystUnitTest
         {
             //TradeParserModel parser = new TradeParserModel("PositionCreationUnitTest.csv", UnitTestTrades);
             //PositionsAnalyzerModel model = new PositionsAnalyzerModel("PositionCreationUnitTest.csv");
-            PositionsAnalyzerModel model = await PositionsAnalyzerModel.CreateAsync("PositionCreationUnitTest.csv");
+            AppSettingsModel appData = new AppSettingsModel();
+            bool loaded = await appData.LoadSettingsFromXML();
+            PositionsAnalyzerModel model = await PositionsAnalyzerModel.CreateAsync("PositionCreationUnitTest.csv", appData);
             
             Assert.AreEqual(model.Positions.Count, 1);
             Position tslaTestPosition = model.Positions[0];

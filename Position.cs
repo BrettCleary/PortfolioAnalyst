@@ -11,6 +11,8 @@ namespace PortfolioAnalyst
     public class Position : INotifyPropertyChanged
     {
         List<Trade> Trades;
+        private AppSettingsModel AppData;
+        public string PositionName;
         public string Ticker;
         InvestmentType Investment;
         public double GrossBuy = 0;
@@ -35,14 +37,16 @@ namespace PortfolioAnalyst
         public double CostBasis = -1;
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public Position(List<Trade> trades)
+        public Position(List<Trade> trades, AppSettingsModel appData)
         {
+            AppData = appData;
             Trades = trades;
             InitializePosition();
         }
 
         private void OnPriceChanged()
         {
+            AppData.SetPositionPrice(PositionName, _Price);
             MarketValue = _Price * CurrentQuantity;
             CostBasis = GrossBuy - GrossSell;
             ProfitLoss = MarketValue - CostBasis;
@@ -63,6 +67,7 @@ namespace PortfolioAnalyst
         private void InitializePosition()
         {
             Ticker = Trades[0].Ticker;
+            PositionName = Ticker;
             //sort trades by tradeDate
             Trades.Sort();
             foreach (Trade trade in Trades)

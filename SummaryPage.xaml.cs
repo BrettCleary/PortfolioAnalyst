@@ -91,7 +91,7 @@ namespace PortfolioAnalyst
             
         }
 
-        private void UpdatePositionsButton_Tapped(object sender, TappedRoutedEventArgs e)
+        /*private void UpdatePositionsButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
             int priceColIndex = 0;
             int tickerColIndex = 0;
@@ -108,7 +108,7 @@ namespace PortfolioAnalyst
                 }
                 ++colIndex;
             }
-        }
+        }*/
 
         private void CurrentPositionsDataGrid_CellEditEnded(object sender, DataGridCellEditEndedEventArgs e)
         {

@@ -10,6 +10,7 @@ namespace PortfolioAnalyst
 {
     public class PositionsAnalyzerModel
     {
+        private AppSettingsModel AppData { get; set; }
         public List<Position> Positions { get; set; } = new List<Position>();
         //public ObservableCollection<Position> Positions { get; set; } = new ObservableCollection<Position>();
         TradeParserModel TradeParser { get; set; }
@@ -24,9 +25,10 @@ namespace PortfolioAnalyst
 
         }
 
-        public static async Task<PositionsAnalyzerModel> CreateAsync(string csvPath)
+        public static async Task<PositionsAnalyzerModel> CreateAsync(string csvPath, AppSettingsModel appData)
         {
             PositionsAnalyzerModel model = new PositionsAnalyzerModel();
+            model.AppData = appData;
             bool ret = await model.GeneratePositions(csvPath);
             model.CalcCumulativeRealizedPerformance();
             model.UpdatePortfolioWithMarketData();
@@ -37,8 +39,9 @@ namespace PortfolioAnalyst
         {
             foreach (Position pos_i in OpenPositions)
             {
-                Random ran = new Random();
-                pos_i.Price = Math.Round(100.0, 2);
+                //Random ran = new Random();
+                //pos_i.Price = Math.Round(100.0, 2);
+                pos_i.Price = Math.Round(AppData.GetPositionPrice(pos_i.PositionName), 2);
             }
         }
 
@@ -110,7 +113,7 @@ namespace PortfolioAnalyst
                 {
                     if (trade_iList.Count > 0)
                     {
-                        Position position = new Position(trade_iList);
+                        Position position = new Position(trade_iList, AppData);
                         Positions.Add(position);
                     }
                     trade_iList = new List<Trade>();
@@ -119,7 +122,7 @@ namespace PortfolioAnalyst
                 tickerLast = trade_i.Ticker;
                 if (trade_i == Trades[Trades.Count - 1])
                 {
-                    Position position = new Position(trade_iList);
+                    Position position = new Position(trade_iList, AppData);
                     Positions.Add(position);
                 }
             }
