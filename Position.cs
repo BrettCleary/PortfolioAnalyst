@@ -47,9 +47,9 @@ namespace PortfolioAnalyst
         private void OnPriceChanged()
         {
             AppData.SetPositionPrice(PositionName, _Price);
-            MarketValue = _Price * CurrentQuantity;
-            CostBasis = GrossBuy - GrossSell;
-            ProfitLoss = MarketValue - CostBasis;
+            MarketValue = Math.Round(_Price * CurrentQuantity, 2);
+            CostBasis = Math.Round(GrossBuy - GrossSell, 2);
+            ProfitLoss = Math.Round(MarketValue - CostBasis, 2);
             ProfitLossPercent = Math.Round(ProfitLoss / CostBasis * 100, 2);
             EventArgs e = new EventArgs();
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MarketValue)));

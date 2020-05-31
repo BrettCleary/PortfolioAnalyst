@@ -55,7 +55,7 @@ namespace PortfolioAnalyst
             Type pageType = typeof(SetupPage);
             if (args.IsSettingsInvoked == true)
             {
-                MainPageFrame.Navigate(pageType, PositionsModel, navOptions.TransitionInfoOverride);
+                MainPageFrame.Navigate(pageType, AppData, new DrillInNavigationTransitionInfo());
                 return;
             }
 
@@ -63,21 +63,25 @@ namespace PortfolioAnalyst
             if (navItemTag == "HomeID")
             {
                 pageType = typeof(SummaryPage);
+                MainPageFrame.Navigate(pageType, PositionsModel, new DrillInNavigationTransitionInfo());
             }
             else if (navItemTag == "GraphID")
             {
                 pageType = typeof(PerformanceGraphPage);
+                MainPageFrame.Navigate(pageType, PositionsModel, new DrillInNavigationTransitionInfo());
             }
             else if (navItemTag == "PosTableID")
             {
                 pageType = typeof(PositionTablePage);
+                MainPageFrame.Navigate(pageType, PositionsModel, new DrillInNavigationTransitionInfo());
             }
             else if (navItemTag == "SetupID")
             {
                 pageType = typeof(SetupPage);
+                MainPageFrame.Navigate(pageType, AppData, new DrillInNavigationTransitionInfo());
             }
             //MainPageFrame.Navigate(pageType, PositionsModel, navOptions.TransitionInfoOverride);
-            MainPageFrame.Navigate(pageType, PositionsModel, new DrillInNavigationTransitionInfo());
+            //MainPageFrame.Navigate(pageType, PositionsModel, new DrillInNavigationTransitionInfo());
         }
     }
 }

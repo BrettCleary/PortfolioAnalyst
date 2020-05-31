@@ -6,10 +6,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Style="{StaticResource PageLIGHTStyle}"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:charting="using:Ailon.QuickCharts"
-    xmlns:chart="using:Syncfusion.UI.Xaml.Charts">
+    xmlns:chart="using:Syncfusion.UI.Xaml.Charts"
+    x:Name="SummaryPagePage">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -68,7 +69,7 @@
         <controls:DataGrid
                 Grid.Row="1"
                 Grid.Column="0"
-                Grid.ColumnSpan="2"
+                Grid.ColumnSpan="1"
                 x:Name="AllPositionsDataGrid"
                 MaxColumnWidth="500"
                 GridLinesVisibility="None"
@@ -147,7 +148,17 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock x:Uid="CurrentPortfolioString"/>
+            <TextBlock x:Name="CurrentPortolioTextBlock" x:Uid="CurrentPortfolioString" Margin="7"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <TextBlock x:Name="MarketValueLabelTextBlock" Text="Market Value: " Margin="7"/>
+                <TextBlock x:Name="MarketValueTextBlock" Text="{x:Bind Path=PortfolioStatus.MarketValue, Mode=OneWay}" Margin="7"/>
+                <TextBlock x:Name="CostBasisLabelTextBlock" Text="Cost Basis:" Margin="7"/>
+                <TextBlock x:Name="CostBasisTextBlock" Text="{x:Bind Path=PortfolioStatus.CostBasis, Mode=OneWay}" Margin="7"/>
+                <TextBlock x:Name="PLLabelTextBlock" Text="Unrealized Profit/Loss: " Margin="7"/>
+                <TextBlock x:Name="PLTextBlock" Text="{x:Bind Path=PortfolioStatus.UnrealizedPL, Mode=OneWay}" Margin="7"/>
+                <TextBlock x:Name="UPLPercentLabelTextBlock" Text="Unrealized Profit/Loss Percent: " Margin="7"/>
+                <TextBlock x:Name="UPLPercentTextBlock" Text="{x:Bind Path=PortfolioStatus.UnrealizedPLPercent, Mode=OneWay}" Margin="7"/>
+            </StackPanel>
             <!--Button x:Name="UpdatePositionsButton" Grid.Row="1" Content="Update Positions" HorizontalAlignment="Stretch" Tapped="UpdatePositionsButton_Tapped"/-->
             <controls:DataGrid x:Name="CurrentPositionsDataGrid"
                 Grid.Row="2"
@@ -161,7 +172,6 @@
                 CanUserResizeColumns="True"
                 CanUserSortColumns="True"
                 CanUserReorderColumns="True"
-                AlternatingRowBackground="LightGray"
                 CellEditEnded="CurrentPositionsDataGrid_CellEditEnded"
                 BeginningEdit="CurrentPositionsDataGrid_BeginningEdit">
                 <controls:DataGrid.Columns>

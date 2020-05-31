@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace PortfolioAnalyst
 {
     public class PositionsAnalyzerModel
     {
-        private AppSettingsModel AppData { get; set; }
+        public AppSettingsModel AppData { get; set; }
         public List<Position> Positions { get; set; } = new List<Position>();
         //public ObservableCollection<Position> Positions { get; set; } = new ObservableCollection<Position>();
         TradeParserModel TradeParser { get; set; }
@@ -18,6 +19,8 @@ namespace PortfolioAnalyst
         public List<AccountValue> CumulativeRealized { get; private set; } = new List<AccountValue>();
         public List<Position> ExitedPositions { get; set; } = new List<Position>();
         public List<Position> OpenPositions { get; set; } = new List<Position>();
+        public CurrentPortfolio PortfolioStatus { get; set; } = new CurrentPortfolio();
+        private bool Initialized = false;
         
 
         private PositionsAnalyzerModel()
@@ -31,17 +34,31 @@ namespace PortfolioAnalyst
             model.AppData = appData;
             bool ret = await model.GeneratePositions(csvPath);
             model.CalcCumulativeRealizedPerformance();
-            model.UpdatePortfolioWithMarketData();
+            model.LoadPrices();
+            model.Initialized = true;
             return model;
         }
 
-        private void UpdatePortfolioWithMarketData()
+        private void LoadPrices()
         {
             foreach (Position pos_i in OpenPositions)
             {
-                //Random ran = new Random();
-                //pos_i.Price = Math.Round(100.0, 2);
                 pos_i.Price = Math.Round(AppData.GetPositionPrice(pos_i.PositionName), 2);
+            }
+            UpdateCurrentPortfolio();
+        }
+
+        private void UpdateCurrentPortfolio()
+        {
+            PortfolioStatus.MarketValue = 0;
+            PortfolioStatus.CostBasis = 0;
+            PortfolioStatus.UnrealizedPL = 0;
+            PortfolioStatus.UnrealizedPLPercent = 0;
+            foreach (Position pos_i in OpenPositions)
+            {
+                PortfolioStatus.CostBasis += pos_i.CostBasis;
+                PortfolioStatus.MarketValue += pos_i.MarketValue;
+                PortfolioStatus.CalculatePL();
             }
         }
 
@@ -114,6 +131,7 @@ namespace PortfolioAnalyst
                     if (trade_iList.Count > 0)
                     {
                         Position position = new Position(trade_iList, AppData);
+                        position.PropertyChanged += Position_PropertyChanged;
                         Positions.Add(position);
                     }
                     trade_iList = new List<Trade>();
@@ -123,6 +141,7 @@ namespace PortfolioAnalyst
                 if (trade_i == Trades[Trades.Count - 1])
                 {
                     Position position = new Position(trade_iList, AppData);
+                    position.PropertyChanged += Position_PropertyChanged;
                     Positions.Add(position);
                 }
             }
@@ -131,11 +150,40 @@ namespace PortfolioAnalyst
             //AccountValues.Add(new AccountValue { time = new DateTime(2019, 6, 10), value = 300000 });
             //AccountValues.Add(new AccountValue { time = new DateTime(2020, 6, 10), value = 400000 });
         }
+
+        private void Position_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (!Initialized)
+                return;
+
+            UpdateCurrentPortfolio();
+
+        }
     }
 
     public struct AccountValue
     {
         public DateTime time { get; set; }
         public double value { get; set; }
+    }
+
+    public class CurrentPortfolio : INotifyPropertyChanged
+    {
+        public double MarketValue { get; set; } = 0;
+        public double CostBasis { get; set; } = 0;
+        public double UnrealizedPL { get; set; } = 0;
+        public double UnrealizedPLPercent { get; set; } = 0;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void CalculatePL()
+        {
+            UnrealizedPL = Math.Round(MarketValue - CostBasis, 2);
+            UnrealizedPLPercent = Math.Round(UnrealizedPL / CostBasis * 100, 1);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MarketValue)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CostBasis)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(UnrealizedPL)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(UnrealizedPLPercent)));
+        }
+
     }
 }

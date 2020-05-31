@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using Windows.UI.Xaml.Shapes;
 using Syncfusion.UI.Xaml.Charts;
 using Microsoft.Toolkit.Uwp.UI.Controls;
+using System.Drawing;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -35,6 +36,12 @@ namespace PortfolioAnalyst
         public ObservableCollection<AccountValue> AccountValues { get; set; } = new ObservableCollection<AccountValue>();
         public ObservableCollection<Position> OpenPositions { get; set; } = new ObservableCollection<Position>();
 
+        public CurrentPortfolio PortfolioStatus;
+        private AppSettingsModel AppData;
+        /*public ref double PortMarketValue;
+        public ref double PortCostBasis;
+        public ref double PortProfitLoss;
+        public double PortProfitLossPercent;*/
 
 
         public SummaryPage()
@@ -84,6 +91,42 @@ namespace PortfolioAnalyst
                 OpenPositions.Add(pos_i);
             }
 
+            PortfolioStatus = PositionsModel.PortfolioStatus;
+            /*PortMarketValue = portStatus.MarketValue;
+            PortCostBasis = portStatus.CostBasis;
+            PortProfitLoss = portStatus.UnrealizedPL;
+            PortProfitLossPercent = portStatus.UnrealizedPLPercent;*/
+
+            //SummaryPagePage.Background = (AcrylicBrush) Application.Current.Resources["LightAcrylic"];
+            //SummaryPagePage.Style = (Style)Application.Current.Resources["PageDarkStyle"];
+            SetColorTheme(PositionsModel.AppData.ColorTheme);
+        }
+
+        private void SetColorTheme(ColorThemeEnum colorTheme)
+        {
+            string pageID = "Page" + colorTheme.ToString() + "Style";
+            SummaryPagePage.Style = (Style)Application.Current.Resources[pageID];
+
+            string textBlockID = "TextBlock" + colorTheme.ToString() + "Style";
+            Style textBlockStyle = (Style)Application.Current.Resources[textBlockID];
+            CurrentPortolioTextBlock.Style = textBlockStyle;
+            MarketValueTextBlock.Style = textBlockStyle;
+            MarketValueLabelTextBlock.Style = textBlockStyle;
+            CostBasisTextBlock.Style = textBlockStyle;
+            CostBasisLabelTextBlock.Style = textBlockStyle;
+            PLLabelTextBlock.Style = textBlockStyle;
+            PLTextBlock.Style = textBlockStyle;
+            UPLPercentLabelTextBlock.Style = textBlockStyle;
+            UPLPercentTextBlock.Style = textBlockStyle;
+
+            string dataGridID = "DataGrid" + colorTheme.ToString() + "Style";
+            Style dataGridStyle = (Style)Application.Current.Resources[dataGridID];
+            CurrentPositionsDataGrid.Style = dataGridStyle;
+            AllPositionsDataGrid.Style = dataGridStyle;
+
+            string sfChartID = "SfChart" + colorTheme.ToString() + "Style";
+            Style sfChartStyle = (Style)Application.Current.Resources[sfChartID];
+            AccountPerformanceChart.Style = sfChartStyle;
         }
 
         private void AllPositionsDataGrid_Tapped(object sender, TappedRoutedEventArgs e)

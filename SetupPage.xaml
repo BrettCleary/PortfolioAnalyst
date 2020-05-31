@@ -8,7 +8,56 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Page.Resources>
+        <Style x:Key="SetButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundAltMediumHighBrush}"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="{ThemeResource ButtonBorderThemeBrush}"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+        </Style>
+        <Style x:Key="ValueSetterTextBox" TargetType="TextBox">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="{ThemeResource ButtonBorderThemeBrush}"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+        </Style>
+    </Page.Resources>
 
-    </Grid>
+    <ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!--TextBlock Grid.ColumnSpan="2" Text="Display Customization" Style="{StaticResource HeaderTextBlockStyle}"/-->
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Color Theme" Margin="10,10,10,10" Style="{StaticResource SubtitleTextBlockStyle}"/>
+            <StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10,10,10,10">
+                <RadioButton Grid.Row="1" Grid.Column="1" x:Name="LightModeRadioButton" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Checked="LightModeRadioButton_Checked">
+                    <TextBlock Text="Light"  Style="{StaticResource SubtitleTextBlockStyle}" VerticalAlignment="Center"/>
+                </RadioButton>
+                <RadioButton Grid.Row="1" Grid.Column="1" x:Name="DarkModeRadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Checked="DarkModeRadioButton_Checked">
+                    <TextBlock Text="Dark"  Style="{StaticResource SubtitleTextBlockStyle}" VerticalAlignment="Center"/>
+                </RadioButton>
+            </StackPanel>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Language" Margin="10,10,10,10" Style="{StaticResource SubtitleTextBlockStyle}"/>
+            <ComboBox Grid.Column="1" Grid.Row="1" x:Name="LanguageComboBox" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ItemsSource="{x:Bind LanguageStringList}" SelectionChanged="LanguageComboBox_SelectionChanged"/>
+        </Grid>
+    </ScrollViewer>
 </Page>
