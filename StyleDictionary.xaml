@@ -19,6 +19,14 @@
     <Style x:Key="TextBlockDARKStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
     </Style>
+    
+    <Style x:Key="TextBoxLIGHTStyle" TargetType="TextBox">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighLight}"/>
+    </Style>
+    <Style x:Key="TextBoxDARKStyle" TargetType="TextBox">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
+    </Style>
+    
     <Style x:Key="DataGridLIGHTStyle" TargetType="controls:DataGrid">
         <Setter Property="Foreground" Value="{StaticResource BaseHighLight}"/>
         <Setter Property="AlternatingRowBackground" Value="{StaticResource BaseLowLight}"/>
@@ -32,6 +40,27 @@
         <Setter Property="Foreground" Value="{StaticResource BaseHighLight}"/>
     </Style>
     <Style x:Key="SfChartDARKStyle" TargetType="chart:SfChart">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
+    </Style>
+    
+    <Style x:Key="CatAxisLIGHTStyle" TargetType="chart:CategoryAxis">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighLight}"/>
+    </Style>
+    <Style x:Key="CatAxisDARKStyle" TargetType="chart:CategoryAxis">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
+    </Style>
+    
+    <Style x:Key="NumAxisLIGHTStyle" TargetType="chart:NumericalAxis">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighLight}"/>
+    </Style>
+    <Style x:Key="NumAxisDARKStyle" TargetType="chart:NumericalAxis">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
+    </Style>
+
+    <Style x:Key="NavViewItemLIGHTStyle" TargetType="NavigationViewItem">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighLight}"/>
+    </Style>
+    <Style x:Key="NavViewItemDARKStyle" TargetType="NavigationViewItem">
         <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
     </Style>
 </ResourceDictionary>

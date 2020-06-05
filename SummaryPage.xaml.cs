@@ -38,6 +38,8 @@ namespace PortfolioAnalyst
 
         public CurrentPortfolio PortfolioStatus;
         private AppSettingsModel AppData;
+
+        public Style PricesTextBoxStyle;
         /*public ref double PortMarketValue;
         public ref double PortCostBasis;
         public ref double PortProfitLoss;
@@ -118,6 +120,12 @@ namespace PortfolioAnalyst
             PLTextBlock.Style = textBlockStyle;
             UPLPercentLabelTextBlock.Style = textBlockStyle;
             UPLPercentTextBlock.Style = textBlockStyle;
+            //PriceColumnTextBox.Style = textBlockStyle;
+            PricesTextBoxStyle = textBlockStyle;
+
+            /*string textBoxID = "TextBox" + colorTheme.ToString() + "Style";
+            Style textBoxStyle = (Style)Application.Current.Resources[textBoxID];
+            CurrentPositionsDataGrid.Columns[1].CellStyle = textBoxStyle;*/
 
             string dataGridID = "DataGrid" + colorTheme.ToString() + "Style";
             Style dataGridStyle = (Style)Application.Current.Resources[dataGridID];
@@ -127,6 +135,14 @@ namespace PortfolioAnalyst
             string sfChartID = "SfChart" + colorTheme.ToString() + "Style";
             Style sfChartStyle = (Style)Application.Current.Resources[sfChartID];
             AccountPerformanceChart.Style = sfChartStyle;
+
+            string sfCatAxisID = "CatAxis" + colorTheme.ToString() + "Style";
+            Style sfCatAxisStyle = (Style)Application.Current.Resources[sfCatAxisID];
+            XAxisCategory.Style = sfCatAxisStyle;
+
+            string sfNumAxisID = "NumAxis" + colorTheme.ToString() + "Style";
+            Style sfNumAxisStyle = (Style)Application.Current.Resources[sfNumAxisID];
+            YAxisNumerical.Style = sfNumAxisStyle;
         }
 
         private void AllPositionsDataGrid_Tapped(object sender, TappedRoutedEventArgs e)

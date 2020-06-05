@@ -34,16 +34,16 @@
             </DataTemplate>
         </Grid.Resources>
 
-        <chart:SfChart x:Name="AccountPerformanceChart" VerticalAlignment="Center" AreaBorderThickness="0,0.5,0.5,0" MinHeight="200" MinWidth="200">
+        <chart:SfChart x:Name="AccountPerformanceChart" VerticalAlignment="Center" AreaBorderThickness="0,0.5,0.5,0" MinHeight="200" MinWidth="200" AreaBorderBrush="Transparent">
             <chart:SfChart.Header>
                 <TextBlock Text="Account Performance" FontSize="20" FontFamily="Segoe UI" Margin="0,0,0,20"/>
             </chart:SfChart.Header>
 
             <chart:SfChart.PrimaryAxis>
-                <chart:CategoryAxis/>
+                <chart:CategoryAxis x:Name="XAxisCategory"/>
             </chart:SfChart.PrimaryAxis>
             <chart:SfChart.SecondaryAxis>
-                <chart:NumericalAxis/>
+                <chart:NumericalAxis x:Name="YAxisNumerical"/>
             </chart:SfChart.SecondaryAxis>
 
             <!--chart:SfChart.PrimaryAxis>
@@ -173,7 +173,8 @@
                 CanUserSortColumns="True"
                 CanUserReorderColumns="True"
                 CellEditEnded="CurrentPositionsDataGrid_CellEditEnded"
-                BeginningEdit="CurrentPositionsDataGrid_BeginningEdit">
+                BeginningEdit="CurrentPositionsDataGrid_BeginningEdit"
+                >
                 <controls:DataGrid.Columns>
                     <controls:DataGridTemplateColumn Header="Ticker" Tag="Ticker">
                         <controls:DataGridTemplateColumn.CellTemplate>
@@ -184,8 +185,8 @@
                     </controls:DataGridTemplateColumn>
                     <controls:DataGridTemplateColumn Header="Price" Tag="Price" IsReadOnly="False" CanUserSort="True">
                         <controls:DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate x:DataType="local:Position">
-                                <TextBox Text="{x:Bind Price, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
+                            <DataTemplate x:DataType="local:Position" x:Name="PriceColumnDataTemplate">
+                                <TextBox x:Name="PriceColumnTextBox" Text="{x:Bind Price, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
                             </DataTemplate>
                         </controls:DataGridTemplateColumn.CellTemplate>
                     </controls:DataGridTemplateColumn>

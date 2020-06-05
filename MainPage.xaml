@@ -7,16 +7,22 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    
+
     <NavigationView PaneDisplayMode="Top" x:Name="MainPageNavView" ItemInvoked="MainPageNavView_ItemInvoked">
         <NavigationView.MenuItems>
-            <NavigationViewItem Content="Home" Tag="HomeID"/>
+            <NavigationViewItem Tag="HomeID">
+                <TextBlock x:Name="HomeNavViewItem" Text="Home"/>
+            </NavigationViewItem>
             <NavigationViewItemSeparator/>
-            <NavigationViewItem Content="Graph" Tag="GraphID"/>
-            <NavigationViewItem Content="All Positions" Tag="PosTableID"/>
-            <NavigationViewItem Content="Setup" Tag="SetupID"/>
+            <NavigationViewItem Tag="GraphID">
+                <TextBlock x:Name="GraphNavViewItem" Text="Graph"/>
+            </NavigationViewItem>
+            <NavigationViewItem Tag="PosTableID">
+                <TextBlock x:Name="AllPosNavViewItem" Text="All Positions"/>
+            </NavigationViewItem>
+            <!--NavigationViewItem Content="Setup" Tag="SetupID"/-->
         </NavigationView.MenuItems>
-        
+
         <Frame x:Name="MainPageFrame">
             
         </Frame>
