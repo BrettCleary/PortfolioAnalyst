@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="Transparent">
 
     <Page.Resources>
         <Style x:Key="SetButtonStyle" TargetType="Button">
@@ -46,18 +46,18 @@
 
             <!--TextBlock Grid.ColumnSpan="2" Text="Display Customization" Style="{StaticResource HeaderTextBlockStyle}"/-->
 
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="Color Theme" Margin="10,10,10,10" Style="{StaticResource SubtitleTextBlockStyle}"/>
+            <TextBlock x:Name="ColorThemeTextBlock" Grid.Row="0" Grid.Column="0" Text="Color Theme" Margin="10,10,10,10" Style="{StaticResource SubtitleTextBlockStyle}"/>
             <StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10,10,10,10">
-                <RadioButton Grid.Row="1" Grid.Column="1" x:Name="LightModeRadioButton" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Checked="LightModeRadioButton_Checked">
-                    <TextBlock Text="Light"  Style="{StaticResource SubtitleTextBlockStyle}" VerticalAlignment="Center"/>
+                <RadioButton Grid.Row="1" Grid.Column="1" x:Name="LightModeRadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Checked="LightModeRadioButton_Checked">
+                    <TextBlock x:Name="LightTextBlock" Text="Light"  VerticalAlignment="Center"/>
                 </RadioButton>
                 <RadioButton Grid.Row="1" Grid.Column="1" x:Name="DarkModeRadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Checked="DarkModeRadioButton_Checked">
-                    <TextBlock Text="Dark"  Style="{StaticResource SubtitleTextBlockStyle}" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="DarkTextBlock" Text="Dark" VerticalAlignment="Center"/>
                 </RadioButton>
             </StackPanel>
 
-            <TextBlock Grid.Row="1" Grid.Column="0" Text="Language" Margin="10,10,10,10" Style="{StaticResource SubtitleTextBlockStyle}"/>
-            <ComboBox Grid.Column="1" Grid.Row="1" x:Name="LanguageComboBox" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ItemsSource="{x:Bind LanguageStringList}" SelectionChanged="LanguageComboBox_SelectionChanged"/>
+            <TextBlock x:Name="LanguageTextBlock" Grid.Row="1" Grid.Column="0" Text="Language" Margin="10,10,10,10" Style="{StaticResource SubtitleTextBlockStyle}"/>
+            <ComboBox x:Name="LanguageComboBox" Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ItemsSource="{x:Bind LanguageStringList}" SelectionChanged="LanguageComboBox_SelectionChanged"/>
         </Grid>
     </ScrollViewer>
 </Page>

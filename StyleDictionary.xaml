@@ -7,10 +7,10 @@
 
 
     <Style x:Key="PageLIGHTStyle" TargetType="Page">
-        <Setter Property="Background" Value="{StaticResource LightAcrylic}"/>
+        <Setter Property="Background" Value="{StaticResource LIGHTAcrylic}"/>
     </Style>
     <Style x:Key="PageDARKStyle" TargetType="Page">
-        <Setter Property="Background" Value="{StaticResource DarkAcrylic}"/>
+        <Setter Property="Background" Value="{StaticResource DARKAcrylic}"/>
     </Style>
 
     <Style x:Key="TextBlockLIGHTStyle" TargetType="TextBlock">
@@ -29,11 +29,11 @@
     
     <Style x:Key="DataGridLIGHTStyle" TargetType="controls:DataGrid">
         <Setter Property="Foreground" Value="{StaticResource BaseHighLight}"/>
-        <Setter Property="AlternatingRowBackground" Value="{StaticResource BaseLowLight}"/>
+        <Setter Property="AlternatingRowBackground" Value="{StaticResource BaseLowLIGHT}"/>
     </Style>
     <Style x:Key="DataGridDARKStyle" TargetType="controls:DataGrid">
         <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
-        <Setter Property="AlternatingRowBackground" Value="{StaticResource BaseLowDark}"/>
+        <Setter Property="AlternatingRowBackground" Value="{StaticResource BaseLowDARK}"/>
     </Style>
 
     <Style x:Key="SfChartLIGHTStyle" TargetType="chart:SfChart">
@@ -61,6 +61,34 @@
         <Setter Property="Foreground" Value="{StaticResource BaseHighLight}"/>
     </Style>
     <Style x:Key="NavViewItemDARKStyle" TargetType="NavigationViewItem">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
+    </Style>
+    
+    <Style x:Key="ComboBoxLIGHTStyle" TargetType="ComboBox">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighLight}"/>
+    </Style>
+    <Style x:Key="ComboBoxDARKStyle" TargetType="ComboBox">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
+    </Style>
+
+    <Style x:Key="NavigationViewItemSeparatorLIGHTStyle" TargetType="NavigationViewItemSeparator">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighLight}"/>
+    </Style>
+    <Style x:Key="NavigationViewItemSeparatorDARKStyle" TargetType="NavigationViewItemSeparator">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
+    </Style>
+
+    <Style x:Key="IconElementLIGHTStyle" TargetType="NavigationViewItemSeparator">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighLight}"/>
+    </Style>
+    <Style x:Key="IconElementDARKStyle" TargetType="NavigationViewItemSeparator">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
+    </Style>
+
+    <Style x:Key="ButtonLIGHTStyle" TargetType="Button">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighLight}"/>
+    </Style>
+    <Style x:Key="ButtonDARKStyle" TargetType="Button">
         <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
     </Style>
 </ResourceDictionary>

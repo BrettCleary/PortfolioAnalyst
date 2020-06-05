@@ -22,9 +22,25 @@ namespace PortfolioAnalyst
     /// </summary>
     public sealed partial class LoadScreenPage : Page
     {
+        AppSettingsModel AppData;
         public LoadScreenPage()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            AppData = (AppSettingsModel)e.Parameter;
+
+            SetColorTheme(AppData.ColorTheme);
+        }
+
+        private void SetColorTheme(ColorThemeEnum colorTheme)
+        {
+            string textBlockID = "TextBlock" + colorTheme.ToString() + "Style";
+            Style textBlockStyle = (Style)Application.Current.Resources[textBlockID];
+            LoadingTextBlock.Style = textBlockStyle;
         }
     }
 }

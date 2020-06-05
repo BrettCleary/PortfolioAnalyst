@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,10 +13,28 @@ namespace PortfolioAnalyst
 {
     public class AppSettingsModel
     {
-        public ColorThemeEnum ColorTheme { get; set; } = ColorThemeEnum.LIGHT;
+        private ColorThemeEnum _ColorTheme = ColorThemeEnum.LIGHT;
+        public ColorThemeEnum ColorTheme { get { return _ColorTheme; }
+                set
+                {
+                    _ColorTheme = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ColorTheme)));
+                } 
+        }
         public string LanguageCode { get; set; } = "en-US";
 
         public SortedList<string, double> PositionPriceList { get; set; } = new SortedList<string, double>();
+
+        private string _CsvFilePath;
+        public string CsvFilePath { get { return _CsvFilePath; } 
+            set
+            {
+                _CsvFilePath = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CsvFilePath)));
+            } 
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
 
         private string SaveFileName { get; set; } = "AppSettings.xml";
@@ -38,7 +57,6 @@ namespace PortfolioAnalyst
             LanguageCode = xLangCode.InnerText;
 
             ReadAllPositionPrices(xDoc, xAppSettings, file);
-
 
             return true;
         }
@@ -87,7 +105,6 @@ namespace PortfolioAnalyst
                 double price = Convert.ToDouble(pos_i.InnerText);
                 PositionPriceList.Add(positionName, price);
             }
-
         }
 
         private XmlNode GetPriceListNode(XmlDocument xDoc, XmlNode xAppSettings, StorageFile file)

@@ -31,6 +31,15 @@ namespace PortfolioAnalyst
         {
             base.OnNavigatedTo(e);
             PositionsModel = (PositionsAnalyzerModel)e.Parameter;
+            SetColorTheme(PositionsModel.AppData.ColorTheme);
+        }
+
+
+        private void SetColorTheme(ColorThemeEnum colorTheme)
+        {
+            string dataGridID = "DataGrid" + colorTheme.ToString() + "Style";
+            Style dataGridStyle = (Style)Application.Current.Resources[dataGridID];
+            AllPositionsDataGrid.Style = dataGridStyle;
         }
     }
 }

@@ -39,6 +39,11 @@ namespace PortfolioAnalyst
             return model;
         }
 
+        public static async Task<PositionsAnalyzerModel> CreateAsync(AppSettingsModel appData)
+        {
+            return await CreateAsync(appData.CsvFilePath, appData);
+        }
+
         private void LoadPrices()
         {
             foreach (Position pos_i in OpenPositions)

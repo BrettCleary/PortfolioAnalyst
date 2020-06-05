@@ -10,7 +10,8 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:charting="using:Ailon.QuickCharts"
     xmlns:chart="using:Syncfusion.UI.Xaml.Charts"
-    x:Name="SummaryPagePage">
+    x:Name="SummaryPagePage"
+    Background="Transparent">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -229,5 +230,9 @@
             </controls:DataGrid>
         </Grid>
 
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Button x:Name="BrowseCsvButton" Content="Browse for CSV File." FontSize="50" HorizontalAlignment="Center" Tapped="BrowseCsvButton_Tapped" Margin="25"/>
+        </Grid>
     </Grid>
 </Page>

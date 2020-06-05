@@ -19,8 +19,10 @@ namespace PortfolioAnalyst
 
         public async Task<bool> ReadCsvSuccess(string csvPath)
         {
-            StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
-            StorageFile file = await storageFolder.GetFileAsync(csvPath);
+            //StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+            StorageFile file = await StorageFile.GetFileFromPathAsync(csvPath);
+            
+            //StorageFile file = await storageFolder.GetFileAsync(csvPath);
             IRandomAccessStream stream = await file.OpenAsync(FileAccessMode.Read);
             if (!stream.CanRead)
                 return false;

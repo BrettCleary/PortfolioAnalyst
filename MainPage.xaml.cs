@@ -17,6 +17,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using System.ComponentModel;
+using Windows.UI;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -35,7 +37,7 @@ namespace PortfolioAnalyst
             this.InitializeComponent();
             bool success;
             //PositionsModel = new PositionsAnalyzerModel("C:\\Users\\brett\\AppData\\Local\\Packages\\ff69270a-36c5-460e-b566-4fd9f0f640c8_sz704ddpb1q5c\\LocalState\\AllPositionData.csv");
-            MainPageFrame.Navigate(typeof(LoadScreenPage));
+            
             //InitializeMainPage();
         }
 
@@ -43,10 +45,29 @@ namespace PortfolioAnalyst
         {
             AppData = appData;
             SetColorTheme(AppData.ColorTheme);
+            AppData.PropertyChanged += AppDataPropertyChangedHandler;
+
             //bool loaded = await AppData.LoadSettingsFromXML();
+
+            MainPageFrame.Navigate(typeof(WaitingForDataFilePage), appData);
+            return true;
+
             PositionsModel = await PositionsAnalyzerModel.CreateAsync("AllTrades.csv", AppData);
             MainPageFrame.Navigate(typeof(SummaryPage), PositionsModel);
             return true;
+        }
+
+        public async void AppDataPropertyChangedHandler(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "ColorTheme")
+                SetColorTheme(AppData.ColorTheme);
+
+            if (e.PropertyName == "CsvFilePath")
+            {
+                MainPageFrame.Navigate(typeof(LoadScreenPage), AppData);
+                PositionsModel = await PositionsAnalyzerModel.CreateAsync(AppData);
+                MainPageFrame.Navigate(typeof(SummaryPage), PositionsModel);
+            }
         }
 
         /*protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -96,19 +117,48 @@ namespace PortfolioAnalyst
             string navViewTextBlockID = "TextBlock" + colorTheme.ToString() + "Style";
             Style navViewTextBlockIDStyle = (Style)Application.Current.Resources[navViewTextBlockID];
 
+            string pageID = "Page" + colorTheme.ToString() + "Style";
+            MainPagePage.Style = (Style)Application.Current.Resources[pageID];
+
             foreach (var item in MainPageNavView.MenuItems.OfType<NavigationViewItem>())
             {
                 TextBlock contentBlock = (TextBlock)item.Content;
                 contentBlock.Style = navViewTextBlockIDStyle;
             }
 
+
+
+            /*string navViewSepID = "NavigationViewItemSeparator" + colorTheme.ToString() + "Style";
+            Style navViewSepIDStyle = (Style)Application.Current.Resources[navViewSepID];
+            foreach (var item in MainPageNavView.MenuItems.OfType<NavigationViewItemSeparator>())
+            {
+                NavigationViewItemSeparator separator = (NavigationViewItemSeparator)item;
+                //separator.Style = navViewSepIDStyle;
+                separator.Foreground = new SolidColorBrush(Colors.Red);
+            }*/
+            /*string iconElementID = "IconElement" + colorTheme.ToString() + "Style";
+            Style iconElementIDStyle = (Style)Application.Current.Resources[iconElementID];
+            NavigationViewItem navSettingsItem = (NavigationViewItem)MainPageNavView.SettingsItem;
+            navSettingsItem.Icon.Style = iconElementIDStyle;*/
+
+            string navViewBrushID = colorTheme.ToString() + "Acrylic";
+            AcrylicBrush acrylicBrush = (AcrylicBrush)Application.Current.Resources[navViewBrushID];
+            NavViewBackgroundBrush.TintColor = acrylicBrush.TintColor;
+
+
+            string appColorBrushID = "AltLow" + colorTheme.ToString();
+            SolidColorBrush solidBrush = (SolidColorBrush)Application.Current.Resources[appColorBrushID];
+
+            Color appColor = solidBrush.Color;
+            PointerOverNavViewBrush.Color = appColor;
+
             Windows.UI.ViewManagement.ApplicationView appView = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
-            appView.TitleBar.BackgroundColor = Windows.UI.Colors.Black; // or {a: 255, r: 0, g: 0, b: 0}
-            appView.TitleBar.InactiveBackgroundColor = Windows.UI.Colors.Black;
-            appView.TitleBar.ButtonBackgroundColor = Windows.UI.Colors.Black;
-            appView.TitleBar.ButtonHoverBackgroundColor = Windows.UI.Colors.Black;
-            appView.TitleBar.ButtonPressedBackgroundColor = Windows.UI.Colors.Black;
-            appView.TitleBar.ButtonInactiveBackgroundColor = Windows.UI.Colors.Black;
+            appView.TitleBar.BackgroundColor = appColor; // or {a: 255, r: 0, g: 0, b: 0}
+            appView.TitleBar.InactiveBackgroundColor = appColor;
+            appView.TitleBar.ButtonBackgroundColor = appColor;
+            appView.TitleBar.ButtonHoverBackgroundColor = appColor;
+            appView.TitleBar.ButtonPressedBackgroundColor = appColor;
+            appView.TitleBar.ButtonInactiveBackgroundColor = appColor;
         }
     }
 }

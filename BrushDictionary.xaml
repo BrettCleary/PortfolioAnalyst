@@ -8,20 +8,23 @@
 
 
 
-    <AcrylicBrush x:Key="DarkAcrylic"
+    <AcrylicBrush x:Key="DARKAcrylic"
             BackgroundSource="HostBackdrop"
             TintColor="Black"
             TintOpacity="0.8"
             FallbackColor="Black"/>
-    <AcrylicBrush x:Key="LightAcrylic"
+    <AcrylicBrush x:Key="LIGHTAcrylic"
             BackgroundSource="HostBackdrop"
             TintColor="White"
             TintOpacity="0.8"
             FallbackColor="White"/>
     <SolidColorBrush x:Key="BaseHighLight" Color="#FF000000"/>
     <SolidColorBrush x:Key="BaseHighDark" Color="#FFFFFFFF"/>
-    <SolidColorBrush x:Key="BaseLowLight" Color="#33000000"/>
-    <SolidColorBrush x:Key="BaseLowDark" Color="#33FFFFFF"/>
+    <SolidColorBrush x:Key="BaseLowLIGHT" Color="#33000000"/>
+    <SolidColorBrush x:Key="BaseLowDARK" Color="#33FFFFFF"/>
+
+    <SolidColorBrush x:Key="AltLowLIGHT" Color="White"/>
+    <SolidColorBrush x:Key="AltLowDARK" Color="#5c5c5c"/>
 
 
     <ResourceDictionary.ThemeDictionaries>
@@ -34,10 +37,10 @@
                                    BackgroundSource="Backdrop"
                                    TintColor="LightSlateGray"
                                    TintOpacity=".6"/-->
-            <AcrylicBrush x:Key="NavigationViewTopPaneBackground"
+            <!--AcrylicBrush x:Key="NavigationViewTopPaneBackground"
                                    BackgroundSource="Backdrop"
                                    TintColor="#64BFED"
-                                   TintOpacity=".6"/>
+                                   TintOpacity=".6"/-->
             <!--LinearGradientBrush x:Key="NavigationViewExpandedPaneBackground"
                                      StartPoint="0.5,0" EndPoint="0.5,1">
                 <GradientStop Color="LightSlateGray" Offset="0.0" />

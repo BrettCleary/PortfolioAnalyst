@@ -67,15 +67,30 @@ namespace PortfolioAnalyst
             else if (AppData.ColorTheme == ColorThemeEnum.DARK)
                 DarkModeRadioButton.IsChecked = true;
 
+
+
+            string textBlockID = "TextBlock" + AppData.ColorTheme.ToString() + "Style";
+            Style textBlockStyle = (Style)Application.Current.Resources[textBlockID];
+            ColorThemeTextBlock.Style = textBlockStyle;
+            LanguageTextBlock.Style = textBlockStyle;
+            DarkTextBlock.Style = textBlockStyle;
+            LightTextBlock.Style = textBlockStyle;
+
+            string comboBoxID = "ComboBox" + AppData.ColorTheme.ToString() + "Style";
+            Style comboBoxStyle = (Style)Application.Current.Resources[comboBoxID];
+            LanguageComboBox.Style = comboBoxStyle;
+
         }
         private void LightModeRadioButton_Checked(object sender, RoutedEventArgs e)
         {
             AppData.ColorTheme = ColorThemeEnum.LIGHT;
+            SelectExistingColorTheme();
             AppData.SaveSettings();
         }
         private void DarkModeRadioButton_Checked(object sender, RoutedEventArgs e)
         {
             AppData.ColorTheme = ColorThemeEnum.DARK;
+            SelectExistingColorTheme();
             AppData.SaveSettings();
         }
         private void LanguageComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

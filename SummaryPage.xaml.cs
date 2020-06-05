@@ -20,6 +20,8 @@ using Windows.UI.Xaml.Shapes;
 using Syncfusion.UI.Xaml.Charts;
 using Microsoft.Toolkit.Uwp.UI.Controls;
 using System.Drawing;
+using Windows.Storage;
+using Windows.Storage.Pickers;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -106,9 +108,6 @@ namespace PortfolioAnalyst
 
         private void SetColorTheme(ColorThemeEnum colorTheme)
         {
-            string pageID = "Page" + colorTheme.ToString() + "Style";
-            SummaryPagePage.Style = (Style)Application.Current.Resources[pageID];
-
             string textBlockID = "TextBlock" + colorTheme.ToString() + "Style";
             Style textBlockStyle = (Style)Application.Current.Resources[textBlockID];
             CurrentPortolioTextBlock.Style = textBlockStyle;
@@ -143,6 +142,29 @@ namespace PortfolioAnalyst
             string sfNumAxisID = "NumAxis" + colorTheme.ToString() + "Style";
             Style sfNumAxisStyle = (Style)Application.Current.Resources[sfNumAxisID];
             YAxisNumerical.Style = sfNumAxisStyle;
+
+            string buttonID = "Button" + colorTheme.ToString() + "Style";
+            Style buttonStyle = (Style)Application.Current.Resources[buttonID];
+            BrowseCsvButton.Style = buttonStyle;
+        }
+
+        private async void BrowseCsvButton_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            var picker = new FileOpenPicker();
+            picker.ViewMode = PickerViewMode.List;
+            picker.FileTypeFilter.Add(".csv");
+
+            StorageFile file = await picker.PickSingleFileAsync();
+
+
+            if (file != null)
+            {
+                PositionsModel.AppData.CsvFilePath = file.Path;
+            }
+            else
+            {
+
+            }
         }
 
         private void AllPositionsDataGrid_Tapped(object sender, TappedRoutedEventArgs e)
