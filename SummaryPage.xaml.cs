@@ -78,7 +78,10 @@ namespace PortfolioAnalyst
             PositionsModel = (PositionsAnalyzerModel)e.Parameter;
 
             foreach (AccountValue accVal in PositionsModel.CumulativeRealized)
+            {
                 AccountValues.Add(accVal);
+            }
+
 
             LineSeries series1 = new LineSeries();
             series1.XBindingPath = "time";
@@ -135,9 +138,9 @@ namespace PortfolioAnalyst
             Style sfChartStyle = (Style)Application.Current.Resources[sfChartID];
             AccountPerformanceChart.Style = sfChartStyle;
 
-            string sfCatAxisID = "CatAxis" + colorTheme.ToString() + "Style";
+            string sfCatAxisID = "DateAxis" + colorTheme.ToString() + "Style";
             Style sfCatAxisStyle = (Style)Application.Current.Resources[sfCatAxisID];
-            XAxisCategory.Style = sfCatAxisStyle;
+            XAxisDateTime.Style = sfCatAxisStyle;
 
             string sfNumAxisID = "NumAxis" + colorTheme.ToString() + "Style";
             Style sfNumAxisStyle = (Style)Application.Current.Resources[sfNumAxisID];

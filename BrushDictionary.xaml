@@ -12,7 +12,7 @@
             BackgroundSource="HostBackdrop"
             TintColor="Black"
             TintOpacity="0.8"
-            FallbackColor="Black"/>
+            FallbackColor="#5c5c5c"/>
     <AcrylicBrush x:Key="LIGHTAcrylic"
             BackgroundSource="HostBackdrop"
             TintColor="White"

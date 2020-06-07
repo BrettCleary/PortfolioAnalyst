@@ -48,13 +48,23 @@ namespace PortfolioAnalyst
             AppData.PropertyChanged += AppDataPropertyChangedHandler;
 
             //bool loaded = await AppData.LoadSettingsFromXML();
-
-            MainPageFrame.Navigate(typeof(WaitingForDataFilePage), appData);
+            EnableNavViewItems(false);
+            MainPageFrame.Navigate(typeof(WaitingForDataFilePage), appData, new DrillInNavigationTransitionInfo());
             return true;
 
             PositionsModel = await PositionsAnalyzerModel.CreateAsync("AllTrades.csv", AppData);
             MainPageFrame.Navigate(typeof(SummaryPage), PositionsModel);
             return true;
+        }
+
+        private void EnableNavViewItems(bool enable)
+        {
+            MainPageNavView.IsSettingsVisible = enable;
+            foreach (var navViewObj in MainPageNavView.MenuItems)
+            {
+                NavigationViewItem navViewItem = (NavigationViewItem)navViewObj;
+                navViewItem.IsEnabled = enable;
+            }
         }
 
         public async void AppDataPropertyChangedHandler(object sender, PropertyChangedEventArgs e)
@@ -64,9 +74,26 @@ namespace PortfolioAnalyst
 
             if (e.PropertyName == "CsvFilePath")
             {
-                MainPageFrame.Navigate(typeof(LoadScreenPage), AppData);
+                MainPageFrame.Navigate(typeof(LoadScreenPage), AppData, new DrillInNavigationTransitionInfo());
                 PositionsModel = await PositionsAnalyzerModel.CreateAsync(AppData);
-                MainPageFrame.Navigate(typeof(SummaryPage), PositionsModel);
+
+                EnableNavViewItems(true);
+                SetSettingsColor();
+
+                MainPageFrame.Navigate(typeof(SummaryPage), PositionsModel, new DrillInNavigationTransitionInfo());
+            }
+        }
+
+        private void SetSettingsColor()
+        {
+            //set foreground color of settings navigation view item now that it is instantiated
+            string iconElementID = "IconElement" + AppData.ColorTheme.ToString() + "Style";
+            Style iconElementIDStyle = (Style)Application.Current.Resources[iconElementID];
+            NavigationViewItem navSettingsItem = (NavigationViewItem)MainPageNavView.SettingsItem;
+
+            if (navSettingsItem != null)
+            {
+                navSettingsItem.Icon.Style = iconElementIDStyle;
             }
         }
 
@@ -114,6 +141,8 @@ namespace PortfolioAnalyst
 
         private void SetColorTheme(ColorThemeEnum colorTheme)
         {
+            SetSettingsColor();
+
             string navViewTextBlockID = "TextBlock" + colorTheme.ToString() + "Style";
             Style navViewTextBlockIDStyle = (Style)Application.Current.Resources[navViewTextBlockID];
 
@@ -126,8 +155,6 @@ namespace PortfolioAnalyst
                 contentBlock.Style = navViewTextBlockIDStyle;
             }
 
-
-
             /*string navViewSepID = "NavigationViewItemSeparator" + colorTheme.ToString() + "Style";
             Style navViewSepIDStyle = (Style)Application.Current.Resources[navViewSepID];
             foreach (var item in MainPageNavView.MenuItems.OfType<NavigationViewItemSeparator>())
@@ -139,12 +166,12 @@ namespace PortfolioAnalyst
             /*string iconElementID = "IconElement" + colorTheme.ToString() + "Style";
             Style iconElementIDStyle = (Style)Application.Current.Resources[iconElementID];
             NavigationViewItem navSettingsItem = (NavigationViewItem)MainPageNavView.SettingsItem;
+            
             navSettingsItem.Icon.Style = iconElementIDStyle;*/
 
             string navViewBrushID = colorTheme.ToString() + "Acrylic";
             AcrylicBrush acrylicBrush = (AcrylicBrush)Application.Current.Resources[navViewBrushID];
             NavViewBackgroundBrush.TintColor = acrylicBrush.TintColor;
-
 
             string appColorBrushID = "AltLow" + colorTheme.ToString();
             SolidColorBrush solidBrush = (SolidColorBrush)Application.Current.Resources[appColorBrushID];

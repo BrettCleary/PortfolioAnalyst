@@ -17,7 +17,8 @@
                 GridLinesVisibility="None"
                 IsReadOnly="True"
                 ItemsSource="{x:Bind PositionsModel.Positions}"
-                CanUserResizeColumns="True">
+                CanUserResizeColumns="True"
+                Margin="25">
         <controls:DataGrid.Columns>
             <controls:DataGridTemplateColumn Header="Ticker" Tag="Ticker">
                 <controls:DataGridTemplateColumn.CellTemplate>

@@ -43,10 +43,10 @@
         <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
     </Style>
     
-    <Style x:Key="CatAxisLIGHTStyle" TargetType="chart:CategoryAxis">
+    <Style x:Key="DateAxisLIGHTStyle" TargetType="chart:DateTimeAxis">
         <Setter Property="Foreground" Value="{StaticResource BaseHighLight}"/>
     </Style>
-    <Style x:Key="CatAxisDARKStyle" TargetType="chart:CategoryAxis">
+    <Style x:Key="DateAxisDARKStyle" TargetType="chart:DateTimeAxis">
         <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
     </Style>
     
@@ -78,10 +78,10 @@
         <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
     </Style>
 
-    <Style x:Key="IconElementLIGHTStyle" TargetType="NavigationViewItemSeparator">
+    <Style x:Key="IconElementLIGHTStyle" TargetType="SymbolIcon">
         <Setter Property="Foreground" Value="{StaticResource BaseHighLight}"/>
     </Style>
-    <Style x:Key="IconElementDARKStyle" TargetType="NavigationViewItemSeparator">
+    <Style x:Key="IconElementDARKStyle" TargetType="SymbolIcon">
         <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
     </Style>
 

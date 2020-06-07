@@ -41,7 +41,7 @@
             </chart:SfChart.Header>
 
             <chart:SfChart.PrimaryAxis>
-                <chart:CategoryAxis x:Name="XAxisCategory"/>
+                <chart:DateTimeAxis x:Name="XAxisDateTime" IntervalType="Years" Interval="1" LabelFormat="yyyy"/>
             </chart:SfChart.PrimaryAxis>
             <chart:SfChart.SecondaryAxis>
                 <chart:NumericalAxis x:Name="YAxisNumerical"/>

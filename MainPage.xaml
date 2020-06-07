@@ -21,7 +21,7 @@
         <SolidColorBrush x:Name="NavViewItemForegroundBrush" x:Key="NavigationViewItemForeground" Color="Red"/>
     </Page.Resources>
 
-    <NavigationView PaneDisplayMode="Top" x:Name="MainPageNavView" ItemInvoked="MainPageNavView_ItemInvoked">
+    <NavigationView PaneDisplayMode="Top" x:Name="MainPageNavView" ItemInvoked="MainPageNavView_ItemInvoked" IsBackButtonVisible="Collapsed">
         <NavigationView.MenuItems>
             <NavigationViewItem Tag="HomeID">
                 <TextBlock x:Name="HomeNavViewItem" Text="Home"/>

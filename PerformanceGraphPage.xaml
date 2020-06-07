@@ -6,9 +6,40 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="Transparent">
+    Background="Transparent"
+    xmlns:chart="using:Syncfusion.UI.Xaml.Charts">
 
     <Grid>
+        <chart:SfChart x:Name="AccountPerformanceChart" VerticalAlignment="Center" AreaBorderThickness="0,0.5,0.5,0" MinHeight="200" MinWidth="200" AreaBorderBrush="Transparent" Margin="25">
+            <chart:SfChart.Header>
+                <TextBlock Text="Account Performance" FontSize="20" FontFamily="Segoe UI" Margin="0,0,0,20"/>
+            </chart:SfChart.Header>
 
+            <chart:SfChart.PrimaryAxis>
+                <chart:DateTimeAxis x:Name="XAxisDateTime" IntervalType="Years" Interval="1" LabelFormat="yyyy"/>
+            </chart:SfChart.PrimaryAxis>
+            <chart:SfChart.SecondaryAxis>
+                <chart:NumericalAxis x:Name="YAxisNumerical"/>
+            </chart:SfChart.SecondaryAxis>
+
+            <!--chart:SfChart.PrimaryAxis>
+                <chart:CategoryAxis x:Name="Primary" LabelFormat="MM/dd/yyyy" Header="Date" 
+                                    HeaderTemplate="{StaticResource headerTemplate}" 
+                                    AxisLineStyle="{StaticResource axisLineStyle}"
+                                    MajorTickLineStyle="{StaticResource axisLineStyle}"/>
+            </chart:SfChart.PrimaryAxis-->
+
+            <!--chart:SfChart.SecondaryAxis>
+                <chart:NumericalAxis RangePadding="Round" StartRangeFromZero="False" Header="Account Value"
+                                     HeaderTemplate="{StaticResource headerTemplate}" 
+                                     AxisLineStyle="{StaticResource axisLineStyle}"
+                                     MajorTickLineStyle="{StaticResource axisLineStyle}" />
+            </chart:SfChart.SecondaryAxis-->
+
+            <!--chart:LineSeries ItemsSource="{Binding AccountValues}" 
+                                           XBindingPath="time" YBindingPath="value" EnableAnimation="True" Label="values" ShowTooltip="True" Interior="Black"/-->
+            <!--chart:HiLoOpenCloseSeries ItemsSource="{Binding AccountValues}" 
+                                           XBindingPath="t" High="value" Low="value" Open="value" Close="value"/-->
+        </chart:SfChart>
     </Grid>
 </Page>
