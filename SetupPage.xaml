@@ -46,17 +46,17 @@
 
             <!--TextBlock Grid.ColumnSpan="2" Text="Display Customization" Style="{StaticResource HeaderTextBlockStyle}"/-->
 
-            <TextBlock x:Name="ColorThemeTextBlock" Grid.Row="0" Grid.Column="0" Text="Color Theme" Margin="10,10,10,10" Style="{StaticResource SubtitleTextBlockStyle}"/>
+            <TextBlock x:Name="ColorThemeTextBlock" x:Uid="ColorThemeString" Grid.Row="0" Grid.Column="0" Margin="10,10,10,10" Style="{StaticResource SubtitleTextBlockStyle}"/>
             <StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10,10,10,10">
                 <RadioButton Grid.Row="1" Grid.Column="1" x:Name="LightModeRadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Checked="LightModeRadioButton_Checked">
-                    <TextBlock x:Name="LightTextBlock" Text="Light"  VerticalAlignment="Center"/>
+                    <TextBlock x:Name="LightTextBlock" x:Uid="LightString" VerticalAlignment="Center"/>
                 </RadioButton>
                 <RadioButton Grid.Row="1" Grid.Column="1" x:Name="DarkModeRadioButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Checked="DarkModeRadioButton_Checked">
-                    <TextBlock x:Name="DarkTextBlock" Text="Dark" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="DarkTextBlock" x:Uid="DarkString" VerticalAlignment="Center"/>
                 </RadioButton>
             </StackPanel>
 
-            <TextBlock x:Name="LanguageTextBlock" Grid.Row="1" Grid.Column="0" Text="Language" Margin="10,10,10,10" Style="{StaticResource SubtitleTextBlockStyle}"/>
+            <TextBlock x:Name="LanguageTextBlock" x:Uid="LanguageString" Grid.Row="1" Grid.Column="0" Margin="10,10,10,10" Style="{StaticResource SubtitleTextBlockStyle}"/>
             <ComboBox x:Name="LanguageComboBox" Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ItemsSource="{x:Bind LanguageStringList}" SelectionChanged="LanguageComboBox_SelectionChanged"/>
         </Grid>
     </ScrollViewer>

@@ -42,9 +42,11 @@ namespace PortfolioAnalyst
         {
             SelectExistingColorTheme();
             Language english = new Language("en-US");
-            //Language german = new Language("de-DE");
+            Language spanish = new Language("es");
+            Language simpChinese = new Language("zh-cn");
             LanguageList.Add(english);
-            //LanguageList.Add(german);
+            LanguageList.Add(spanish);
+            LanguageList.Add(simpChinese);
 
             foreach (Language langString in LanguageList)
             {
@@ -55,9 +57,13 @@ namespace PortfolioAnalyst
             {
                 LanguageComboBox.SelectedIndex = 0;
             }
-            else if (AppData.LanguageCode == "de-DE")
+            else if (AppData.LanguageCode == "es")
             {
                 LanguageComboBox.SelectedIndex = 1;
+            }
+            else if (AppData.LanguageCode == "zh-cn" || AppData.LanguageCode == "zh-Hans-CN")
+            {
+                LanguageComboBox.SelectedIndex = 2;
             }
         }
         private void SelectExistingColorTheme()

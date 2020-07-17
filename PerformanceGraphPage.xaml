@@ -12,7 +12,7 @@
     <Grid>
         <chart:SfChart x:Name="AccountPerformanceChart" VerticalAlignment="Center" AreaBorderThickness="0,0.5,0.5,0" MinHeight="200" MinWidth="200" AreaBorderBrush="Transparent" Margin="25">
             <chart:SfChart.Header>
-                <TextBlock Text="Account Performance" FontSize="20" FontFamily="Segoe UI" Margin="0,0,0,20"/>
+                <TextBlock x:Uid="AcctPerfString" FontSize="20" FontFamily="Segoe UI" Margin="0,0,0,20"/>
             </chart:SfChart.Header>
 
             <chart:SfChart.PrimaryAxis>

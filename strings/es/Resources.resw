@@ -118,96 +118,96 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AcctPerfString.Text" xml:space="preserve">
-    <value>Account Performance</value>
+    <value>Rendimiento de cuenta</value>
   </data>
   <data name="AllPositionsString.Text" xml:space="preserve">
-    <value>All Positions</value>
+    <value>Todas las posiciones</value>
   </data>
   <data name="BrowseCSVButtonString.Content" xml:space="preserve">
-    <value>Browse for CSV File.</value>
+    <value>Busque el archivo CSV.</value>
   </data>
   <data name="ColorThemeString.Text" xml:space="preserve">
-    <value>Color Theme</value>
+    <value>Tema de color</value>
   </data>
   <data name="CostBasisHeaderString.Header" xml:space="preserve">
-    <value>Cost Basis</value>
+    <value>Base de costo</value>
   </data>
   <data name="CostBasisString.Text" xml:space="preserve">
-    <value>Cost Basis: </value>
+    <value>Base de costo:</value>
   </data>
   <data name="CurrentPortfolioString.Text" xml:space="preserve">
-    <value>Current Portfolio</value>
+    <value>Portafolio Actual</value>
   </data>
   <data name="DarkString.Text" xml:space="preserve">
-    <value>Dark</value>
+    <value>Oscuro</value>
   </data>
   <data name="GraphString.Text" xml:space="preserve">
-    <value>Graph</value>
+    <value>Grafico</value>
   </data>
   <data name="GrossInvHeaderString.Header" xml:space="preserve">
-    <value>Gross Investment</value>
+    <value>Inversión Bruta</value>
   </data>
   <data name="GrossPercentHeaderString.Header" xml:space="preserve">
-    <value>Gross Percent</value>
+    <value>Porcentaje bruto</value>
   </data>
   <data name="GrossProfitHeaderString.Header" xml:space="preserve">
-    <value>Gross Profit</value>
+    <value>Beneficio bruto</value>
   </data>
   <data name="GrossSalesHeaderString.Header" xml:space="preserve">
-    <value>Gross Sales</value>
+    <value>Ventas brutas</value>
   </data>
   <data name="HomeString.Text" xml:space="preserve">
-    <value>Home</value>
+    <value>Hogar</value>
   </data>
   <data name="IRRHeaderString.Header" xml:space="preserve">
-    <value>IRR</value>
+    <value>TIR</value>
   </data>
   <data name="LanguageString.Text" xml:space="preserve">
-    <value>Language</value>
+    <value>Idioma</value>
   </data>
   <data name="LightString.Text" xml:space="preserve">
-    <value>Light</value>
+    <value>Ligero</value>
   </data>
   <data name="LoadingString.Text" xml:space="preserve">
-    <value>Loading</value>
+    <value>Cargando</value>
   </data>
   <data name="MarketValueHeaderString.Header" xml:space="preserve">
-    <value>Market Value</value>
+    <value>Valor de mercado</value>
   </data>
   <data name="MarketValueString.Text" xml:space="preserve">
-    <value>Market Value:</value>
+    <value>Valor de mercado:</value>
   </data>
   <data name="MaxPosSizeString.Header" xml:space="preserve">
-    <value>Max Position Size</value>
+    <value>Tamaño de posición máxima</value>
   </data>
   <data name="PositionHeaderString.Header" xml:space="preserve">
-    <value>Position</value>
+    <value>Posición</value>
   </data>
   <data name="PriceHeaderString.Header" xml:space="preserve">
-    <value>Price</value>
+    <value>Precio</value>
   </data>
   <data name="ProfitLossHeaderString.Header" xml:space="preserve">
-    <value>Profit/Loss</value>
+    <value>Pérdida de beneficios</value>
   </data>
   <data name="ProfitLossPercentHeaderString.Header" xml:space="preserve">
-    <value>Profit/Loss Percent</value>
+    <value>Porcentaje de ganancias / pérdidas</value>
   </data>
   <data name="SetupButtonString.Content" xml:space="preserve">
-    <value>Setup</value>
+    <value>Preparar</value>
   </data>
   <data name="TickerHeaderString.Header" xml:space="preserve">
-    <value>Ticker</value>
+    <value>Corazón</value>
   </data>
   <data name="UnrealizedPLPString.Text" xml:space="preserve">
-    <value>Unrealized Profit/Loss Percent:</value>
+    <value>Porcentaje de ganancia / pérdida no realizada:</value>
   </data>
   <data name="UnrealizedPLString.Text" xml:space="preserve">
-    <value>Unrealized Profit/Loss:</value>
+    <value>Ganancias / Pérdidas no realizadas:</value>
   </data>
   <data name="WaitingForCsvString.Text" xml:space="preserve">
-    <value>Waiting for CSV File.</value>
+    <value>Esperando archivo CSV.</value>
   </data>
   <data name="YourBestPlaysString.Text" xml:space="preserve">
-    <value>Your Best Plays</value>
+    <value>Tus mejores jugadas</value>
   </data>
 </root>

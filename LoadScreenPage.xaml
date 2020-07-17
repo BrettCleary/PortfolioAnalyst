@@ -11,7 +11,7 @@
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-            <TextBlock x:Name="LoadingTextBlock" Text="LOADING" FontSize="150"/>
+            <TextBlock x:Name="LoadingTextBlock" x:Uid="LoadingString" FontSize="150"/>
             
         </StackPanel>
     </Grid>

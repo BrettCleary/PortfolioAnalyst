@@ -14,8 +14,8 @@
 
     <Grid x:Name="CsvFileLoadGrid" AllowDrop="True" Drop="CsvFileLoadGrid_Drop">
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock x:Name="WaitingTextBlock" Text="Waiting for CSV File." FontSize="100" HorizontalAlignment="Center"/>
-            <Button x:Name="BrowseCsvButton" Content="Browse for CSV File." FontSize="50" HorizontalAlignment="Center" Tapped="BrowseCsvButton_Tapped" Margin="25"/>
+            <TextBlock x:Name="WaitingTextBlock" x:Uid="WaitingForCsvString" FontSize="100" HorizontalAlignment="Center"/>
+            <Button x:Name="BrowseCsvButton" x:Uid="BrowseCSVButtonString" FontSize="50" HorizontalAlignment="Center" Tapped="BrowseCsvButton_Tapped" Margin="25"/>
         </StackPanel>
     </Grid>
 </Page>

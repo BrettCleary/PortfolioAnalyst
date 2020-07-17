@@ -35,7 +35,6 @@ namespace PortfolioAnalyst
         public MainPage()
         {
             this.InitializeComponent();
-            bool success;
             //PositionsModel = new PositionsAnalyzerModel("C:\\Users\\brett\\AppData\\Local\\Packages\\ff69270a-36c5-460e-b566-4fd9f0f640c8_sz704ddpb1q5c\\LocalState\\AllPositionData.csv");
             
             //InitializeMainPage();
@@ -52,9 +51,9 @@ namespace PortfolioAnalyst
             MainPageFrame.Navigate(typeof(WaitingForDataFilePage), appData, new DrillInNavigationTransitionInfo());
             return true;
 
-            PositionsModel = await PositionsAnalyzerModel.CreateAsync("AllTrades.csv", AppData);
-            MainPageFrame.Navigate(typeof(SummaryPage), PositionsModel);
-            return true;
+            //PositionsModel = await PositionsAnalyzerModel.CreateAsync("AllTrades.csv", AppData);
+            //MainPageFrame.Navigate(typeof(SummaryPage), PositionsModel);
+            //return true;
         }
 
         private void EnableNavViewItems(bool enable)

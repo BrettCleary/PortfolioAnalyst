@@ -31,6 +31,8 @@ namespace PortfolioAnalyst
                 OnPriceChanged();
             } 
         }
+        //public double Price = -1;
+
         public double MarketValue = -1;
         public double ProfitLoss = -1;
         public double ProfitLossPercent = -1;

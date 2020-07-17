@@ -40,7 +40,6 @@ namespace PortfolioAnalyst
 
             StorageFile file = await picker.PickSingleFileAsync();
 
-
             if (file != null)
             {
                 AppData.CsvFilePath = file.Path;

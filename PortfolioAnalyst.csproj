@@ -119,7 +119,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AppSettingsModel.cs" />
+    <Compile Include="DataModel\AppSettingsModel.cs" />
     <Compile Include="LoadScreenPage.xaml.cs">
       <DependentUpon>LoadScreenPage.xaml</DependentUpon>
     </Compile>
@@ -129,13 +129,13 @@
     <Compile Include="PerformanceGraphPage.xaml.cs">
       <DependentUpon>PerformanceGraphPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PositionsAnalyzerModel.cs" />
-    <Compile Include="SettingsXMLHelper.cs" />
+    <Compile Include="DataModel\PositionsAnalyzerModel.cs" />
+    <Compile Include="DataModel\SettingsXMLHelper.cs" />
     <Compile Include="SummaryPage.xaml.cs">
       <DependentUpon>SummaryPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TradeParserModel.cs" />
-    <Compile Include="Position.cs" />
+    <Compile Include="DataModel\TradeParserModel.cs" />
+    <Compile Include="DataModel\Position.cs" />
     <Compile Include="PositionTablePage.xaml.cs">
       <DependentUpon>PositionTablePage.xaml</DependentUpon>
     </Compile>
@@ -266,6 +266,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="QuickCharts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="strings\es\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="strings\zh-cn\Resources.resw" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

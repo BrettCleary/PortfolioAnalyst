@@ -24,16 +24,16 @@
     <NavigationView PaneDisplayMode="Top" x:Name="MainPageNavView" ItemInvoked="MainPageNavView_ItemInvoked" IsBackButtonVisible="Collapsed">
         <NavigationView.MenuItems>
             <NavigationViewItem Tag="HomeID">
-                <TextBlock x:Name="HomeNavViewItem" Text="Home"/>
+                <TextBlock x:Name="HomeNavViewItem" x:Uid="HomeString"/>
             </NavigationViewItem>
             <!--NavigationViewItemSeparator>
                 <SymbolIcon Symbol=""
             </NavigationViewItemSeparator-->
             <NavigationViewItem Tag="GraphID">
-                <TextBlock x:Name="GraphNavViewItem" Text="Graph"/>
+                <TextBlock x:Name="GraphNavViewItem" x:Uid="GraphString"/>
             </NavigationViewItem>
             <NavigationViewItem Tag="PosTableID">
-                <TextBlock x:Name="AllPosNavViewItem" Text="All Positions"/>
+                <TextBlock x:Name="AllPosNavViewItem" x:Uid="AllPositionsString"/>
             </NavigationViewItem>
             <!--NavigationViewItem Content="Setup" Tag="SetupID"/-->
         </NavigationView.MenuItems>

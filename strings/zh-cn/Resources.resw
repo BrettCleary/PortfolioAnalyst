@@ -118,96 +118,96 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AcctPerfString.Text" xml:space="preserve">
-    <value>Account Performance</value>
+    <value>帐户效果</value>
   </data>
   <data name="AllPositionsString.Text" xml:space="preserve">
-    <value>All Positions</value>
+    <value>所有职位</value>
   </data>
   <data name="BrowseCSVButtonString.Content" xml:space="preserve">
-    <value>Browse for CSV File.</value>
+    <value>浏览CSV文件。</value>
   </data>
   <data name="ColorThemeString.Text" xml:space="preserve">
-    <value>Color Theme</value>
+    <value>颜色主题</value>
   </data>
   <data name="CostBasisHeaderString.Header" xml:space="preserve">
-    <value>Cost Basis</value>
+    <value>成本基础</value>
   </data>
   <data name="CostBasisString.Text" xml:space="preserve">
-    <value>Cost Basis: </value>
+    <value>成本基础：</value>
   </data>
   <data name="CurrentPortfolioString.Text" xml:space="preserve">
-    <value>Current Portfolio</value>
+    <value>目前的投资组合</value>
   </data>
   <data name="DarkString.Text" xml:space="preserve">
-    <value>Dark</value>
+    <value>黑暗</value>
   </data>
   <data name="GraphString.Text" xml:space="preserve">
-    <value>Graph</value>
+    <value>图形</value>
   </data>
   <data name="GrossInvHeaderString.Header" xml:space="preserve">
-    <value>Gross Investment</value>
+    <value>总投资</value>
   </data>
   <data name="GrossPercentHeaderString.Header" xml:space="preserve">
-    <value>Gross Percent</value>
+    <value>毛百分比</value>
   </data>
   <data name="GrossProfitHeaderString.Header" xml:space="preserve">
-    <value>Gross Profit</value>
+    <value>毛利</value>
   </data>
   <data name="GrossSalesHeaderString.Header" xml:space="preserve">
-    <value>Gross Sales</value>
+    <value>总销售额</value>
   </data>
   <data name="HomeString.Text" xml:space="preserve">
-    <value>Home</value>
+    <value>家</value>
   </data>
   <data name="IRRHeaderString.Header" xml:space="preserve">
-    <value>IRR</value>
+    <value>内部收益率</value>
   </data>
   <data name="LanguageString.Text" xml:space="preserve">
-    <value>Language</value>
+    <value>语言</value>
   </data>
   <data name="LightString.Text" xml:space="preserve">
-    <value>Light</value>
+    <value>光</value>
   </data>
   <data name="LoadingString.Text" xml:space="preserve">
-    <value>Loading</value>
+    <value>你的最佳表演</value>
   </data>
   <data name="MarketValueHeaderString.Header" xml:space="preserve">
-    <value>Market Value</value>
+    <value>载入中</value>
   </data>
   <data name="MarketValueString.Text" xml:space="preserve">
-    <value>Market Value:</value>
+    <value>市场价值</value>
   </data>
   <data name="MaxPosSizeString.Header" xml:space="preserve">
-    <value>Max Position Size</value>
+    <value>市场价值：</value>
   </data>
   <data name="PositionHeaderString.Header" xml:space="preserve">
-    <value>Position</value>
+    <value>最大头寸</value>
   </data>
   <data name="PriceHeaderString.Header" xml:space="preserve">
-    <value>Price</value>
+    <value>位置</value>
   </data>
   <data name="ProfitLossHeaderString.Header" xml:space="preserve">
-    <value>Profit/Loss</value>
+    <value>价钱</value>
   </data>
   <data name="ProfitLossPercentHeaderString.Header" xml:space="preserve">
-    <value>Profit/Loss Percent</value>
+    <value>利润损失</value>
   </data>
   <data name="SetupButtonString.Content" xml:space="preserve">
-    <value>Setup</value>
+    <value>利润/亏损百分比</value>
   </data>
   <data name="TickerHeaderString.Header" xml:space="preserve">
-    <value>Ticker</value>
+    <value>建立</value>
   </data>
   <data name="UnrealizedPLPString.Text" xml:space="preserve">
-    <value>Unrealized Profit/Loss Percent:</value>
+    <value>股票代号</value>
   </data>
   <data name="UnrealizedPLString.Text" xml:space="preserve">
-    <value>Unrealized Profit/Loss:</value>
+    <value>未实现利润/亏损百分比：</value>
   </data>
   <data name="WaitingForCsvString.Text" xml:space="preserve">
-    <value>Waiting for CSV File.</value>
+    <value>未实现利润/亏损：</value>
   </data>
   <data name="YourBestPlaysString.Text" xml:space="preserve">
-    <value>Your Best Plays</value>
+    <value>等待CSV文件。</value>
   </data>
 </root>
