@@ -4,7 +4,8 @@
 ### Trade Data Format
 Data format is expected in the following CSV format:
 
-Date,Ticker,Order,Price,Quantity,Total
+Date, Ticker, Order, Price, Quantity, Total
+
 MM/DD/YYYY, TICKER, buy/purchase/sell/dividend, double, double, double
 
 If total is omitted, it will be calculated from price and quantity.
