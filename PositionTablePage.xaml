@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Background="Transparent"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls">
 
     <controls:DataGrid
@@ -17,51 +17,53 @@
                 GridLinesVisibility="None"
                 IsReadOnly="True"
                 ItemsSource="{x:Bind PositionsModel.Positions}"
-                CanUserResizeColumns="True">
+                CanUserResizeColumns="True"
+                Margin="25"
+                AutoGenerateColumns="False">
         <controls:DataGrid.Columns>
-            <controls:DataGridTemplateColumn Header="Ticker" Tag="Ticker">
+            <controls:DataGridTemplateColumn x:Uid="TickerHeaderString" Tag="Ticker">
                 <controls:DataGridTemplateColumn.CellTemplate>
                     <DataTemplate x:DataType="local:Position">
                         <TextBlock Text="{x:Bind Ticker}"/>
                     </DataTemplate>
                 </controls:DataGridTemplateColumn.CellTemplate>
             </controls:DataGridTemplateColumn>
-            <controls:DataGridTemplateColumn Header="Gross Investment" Tag="GrossBuy">
+            <controls:DataGridTemplateColumn x:Uid="GrossInvHeaderString" Tag="GrossBuy">
                 <controls:DataGridTemplateColumn.CellTemplate>
                     <DataTemplate x:DataType="local:Position">
                         <TextBlock Text="{x:Bind GrossBuy}"/>
                     </DataTemplate>
                 </controls:DataGridTemplateColumn.CellTemplate>
             </controls:DataGridTemplateColumn>
-            <controls:DataGridTemplateColumn Header="Gross Sales" Tag="GrossSell">
+            <controls:DataGridTemplateColumn x:Uid="GrossSalesHeaderString" Tag="GrossSell">
                 <controls:DataGridTemplateColumn.CellTemplate>
                     <DataTemplate x:DataType="local:Position">
                         <TextBlock Text="{x:Bind GrossSell}"/>
                     </DataTemplate>
                 </controls:DataGridTemplateColumn.CellTemplate>
             </controls:DataGridTemplateColumn>
-            <controls:DataGridTemplateColumn Header="Max Position Size" Tag="MaxPosSize">
+            <controls:DataGridTemplateColumn x:Uid="MaxPosSizeString" Tag="MaxPosSize">
                 <controls:DataGridTemplateColumn.CellTemplate>
                     <DataTemplate x:DataType="local:Position">
                         <TextBlock Text="{x:Bind MaxPosSize}"/>
                     </DataTemplate>
                 </controls:DataGridTemplateColumn.CellTemplate>
             </controls:DataGridTemplateColumn>
-            <controls:DataGridTemplateColumn Header="Gross Profit" Tag="GrossProfit">
+            <controls:DataGridTemplateColumn x:Uid="GrossProfitHeaderString" Tag="GrossProfit">
                 <controls:DataGridTemplateColumn.CellTemplate>
                     <DataTemplate x:DataType="local:Position">
                         <TextBlock Text="{x:Bind GrossProfit}"/>
                     </DataTemplate>
                 </controls:DataGridTemplateColumn.CellTemplate>
             </controls:DataGridTemplateColumn>
-            <controls:DataGridTemplateColumn Header="GrossPercent" Tag="GrossPercent">
+            <controls:DataGridTemplateColumn x:Uid="GrossPercentHeaderString" Tag="GrossPercent">
                 <controls:DataGridTemplateColumn.CellTemplate>
                     <DataTemplate x:DataType="local:Position">
                         <TextBlock Text="{x:Bind GrossPercent}"/>
                     </DataTemplate>
                 </controls:DataGridTemplateColumn.CellTemplate>
             </controls:DataGridTemplateColumn>
-            <controls:DataGridTemplateColumn Header="IRR" Tag="IRR">
+            <controls:DataGridTemplateColumn x:Uid="IRRHeaderString" Tag="IRR">
                 <controls:DataGridTemplateColumn.CellTemplate>
                     <DataTemplate x:DataType="local:Position">
                         <TextBlock Text="{x:Bind IRR}"/>

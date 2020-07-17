@@ -6,10 +6,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Style="{StaticResource PageLIGHTStyle}"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:charting="using:Ailon.QuickCharts"
-    xmlns:chart="using:Syncfusion.UI.Xaml.Charts">
+    xmlns:chart="using:Syncfusion.UI.Xaml.Charts"
+    x:Name="SummaryPagePage"
+    Background="Transparent">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -19,7 +21,7 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <Grid.Resources>
@@ -33,16 +35,16 @@
             </DataTemplate>
         </Grid.Resources>
 
-        <chart:SfChart x:Name="AccountPerformanceChart" VerticalAlignment="Center" AreaBorderThickness="0,0.5,0.5,0" MinHeight="200" MinWidth="200">
+        <chart:SfChart x:Name="AccountPerformanceChart" VerticalAlignment="Center" AreaBorderThickness="0,0.5,0.5,0" MinHeight="200" MinWidth="200" AreaBorderBrush="Transparent">
             <chart:SfChart.Header>
-                <TextBlock Text="Account Performance" FontSize="20" FontFamily="Segoe UI" Margin="0,0,0,20"/>
+                <TextBlock x:Uid="AcctPerfString" FontSize="20" FontFamily="Segoe UI" Margin="0,0,0,20"/>
             </chart:SfChart.Header>
 
             <chart:SfChart.PrimaryAxis>
-                <chart:CategoryAxis/>
+                <chart:DateTimeAxis x:Name="XAxisDateTime" IntervalType="Years" Interval="1" LabelFormat="yyyy"/>
             </chart:SfChart.PrimaryAxis>
             <chart:SfChart.SecondaryAxis>
-                <chart:NumericalAxis/>
+                <chart:NumericalAxis x:Name="YAxisNumerical"/>
             </chart:SfChart.SecondaryAxis>
 
             <!--chart:SfChart.PrimaryAxis>
@@ -68,7 +70,7 @@
         <controls:DataGrid
                 Grid.Row="1"
                 Grid.Column="0"
-                Grid.ColumnSpan="2"
+                Grid.ColumnSpan="1"
                 x:Name="AllPositionsDataGrid"
                 MaxColumnWidth="500"
                 GridLinesVisibility="None"
@@ -77,51 +79,52 @@
                 CanUserResizeColumns="True"
                 PointerEntered="AllPositionsDataGrid_PointerEntered"
                 PointerExited="AllPositionsDataGrid_PointerExited"
-                Tapped="AllPositionsDataGrid_Tapped">
+                Tapped="AllPositionsDataGrid_Tapped"
+                AutoGenerateColumns="False">
             <controls:DataGrid.Columns>
-                <controls:DataGridTemplateColumn Header="Ticker" Tag="Ticker">
+                <controls:DataGridTemplateColumn x:Uid="TickerHeaderString" Tag="Ticker">
                     <controls:DataGridTemplateColumn.CellTemplate>
                         <DataTemplate x:DataType="local:Position">
                             <TextBlock Text="{x:Bind Ticker}"/>
                         </DataTemplate>
                     </controls:DataGridTemplateColumn.CellTemplate>
                 </controls:DataGridTemplateColumn>
-                <controls:DataGridTemplateColumn Header="Gross Investment" Tag="GrossBuy">
+                <controls:DataGridTemplateColumn x:Uid="GrossInvHeaderString" Tag="GrossBuy">
                     <controls:DataGridTemplateColumn.CellTemplate>
                         <DataTemplate x:DataType="local:Position">
                             <TextBlock Text="{x:Bind GrossBuy}"/>
                         </DataTemplate>
                     </controls:DataGridTemplateColumn.CellTemplate>
                 </controls:DataGridTemplateColumn>
-                <controls:DataGridTemplateColumn Header="Gross Sales" Tag="GrossSell">
+                <controls:DataGridTemplateColumn x:Uid="GrossSalesHeaderString" Tag="GrossSell">
                     <controls:DataGridTemplateColumn.CellTemplate>
                         <DataTemplate x:DataType="local:Position">
                             <TextBlock Text="{x:Bind GrossSell}"/>
                         </DataTemplate>
                     </controls:DataGridTemplateColumn.CellTemplate>
                 </controls:DataGridTemplateColumn>
-                <controls:DataGridTemplateColumn Header="Max Position Size" Tag="MaxPosSize">
+                <controls:DataGridTemplateColumn x:Uid="MaxPosSizeString" Tag="MaxPosSize">
                     <controls:DataGridTemplateColumn.CellTemplate>
                         <DataTemplate x:DataType="local:Position">
                             <TextBlock Text="{x:Bind MaxPosSize}"/>
                         </DataTemplate>
                     </controls:DataGridTemplateColumn.CellTemplate>
                 </controls:DataGridTemplateColumn>
-                <controls:DataGridTemplateColumn Header="Gross Profit" Tag="GrossProfit">
+                <controls:DataGridTemplateColumn x:Uid="GrossProfitHeaderString" Tag="GrossProfit">
                     <controls:DataGridTemplateColumn.CellTemplate>
                         <DataTemplate x:DataType="local:Position">
                             <TextBlock Text="{x:Bind GrossProfit}"/>
                         </DataTemplate>
                     </controls:DataGridTemplateColumn.CellTemplate>
                 </controls:DataGridTemplateColumn>
-                <controls:DataGridTemplateColumn Header="GrossPercent" Tag="GrossPercent">
+                <controls:DataGridTemplateColumn x:Uid="GrossPercentHeaderString" Tag="GrossPercent">
                     <controls:DataGridTemplateColumn.CellTemplate>
                         <DataTemplate x:DataType="local:Position">
                             <TextBlock Text="{x:Bind GrossPercent}"/>
                         </DataTemplate>
                     </controls:DataGridTemplateColumn.CellTemplate>
                 </controls:DataGridTemplateColumn>
-                <controls:DataGridTemplateColumn Header="IRR" Tag="IRR">
+                <controls:DataGridTemplateColumn x:Uid="IRRHeaderString" Tag="IRR">
                     <controls:DataGridTemplateColumn.CellTemplate>
                         <DataTemplate x:DataType="local:Position">
                             <TextBlock Text="{x:Bind IRR}"/>
@@ -138,7 +141,8 @@
 
         <Grid Grid.Row="0" Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
@@ -146,9 +150,90 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock x:Uid="YourBestPlaysString"/>
-            <controls:DataGrid Grid.Row="1" x:Name="BestPositionsDataGrid"></controls:DataGrid>
+            <TextBlock x:Name="CurrentPortolioTextBlock" x:Uid="CurrentPortfolioString" Margin="7"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <TextBlock x:Name="MarketValueLabelTextBlock" x:Uid="MarketValueString" Margin="7"/>
+                <TextBlock x:Name="MarketValueTextBlock" Text="{x:Bind Path=PortfolioStatus.MarketValue, Mode=OneWay}" Margin="7"/>
+                <TextBlock x:Name="CostBasisLabelTextBlock" x:Uid="CostBasisString" Margin="7"/>
+                <TextBlock x:Name="CostBasisTextBlock" Text="{x:Bind Path=PortfolioStatus.CostBasis, Mode=OneWay}" Margin="7"/>
+                <TextBlock x:Name="PLLabelTextBlock" x:Uid="UnrealizedPLString" Margin="7"/>
+                <TextBlock x:Name="PLTextBlock" Text="{x:Bind Path=PortfolioStatus.UnrealizedPL, Mode=OneWay}" Margin="7"/>
+                <TextBlock x:Name="UPLPercentLabelTextBlock" x:Uid="UnrealizedPLPString" Margin="7"/>
+                <TextBlock x:Name="UPLPercentTextBlock" Text="{x:Bind Path=PortfolioStatus.UnrealizedPLPercent, Mode=OneWay}" Margin="7"/>
+            </StackPanel>
+            <!--Button x:Name="UpdatePositionsButton" Grid.Row="1" Content="Update Positions" HorizontalAlignment="Stretch" Tapped="UpdatePositionsButton_Tapped"/-->
+            <controls:DataGrid x:Name="CurrentPositionsDataGrid"
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                MaxColumnWidth="500"
+                GridLinesVisibility="None"
+                IsReadOnly="True"
+                ItemsSource="{x:Bind OpenPositions, Mode=TwoWay}"
+                x:DefaultBindMode="TwoWay"
+                CanUserResizeColumns="True"
+                CanUserSortColumns="True"
+                CanUserReorderColumns="True"
+                CellEditEnded="CurrentPositionsDataGrid_CellEditEnded"
+                BeginningEdit="CurrentPositionsDataGrid_BeginningEdit"
+                AutoGenerateColumns="False">
+                <controls:DataGrid.Columns>
+                    <controls:DataGridTemplateColumn x:Uid="TickerHeaderString" Tag="Ticker">
+                        <controls:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate x:DataType="local:Position">
+                                <TextBlock Text="{x:Bind Ticker}"/>
+                            </DataTemplate>
+                        </controls:DataGridTemplateColumn.CellTemplate>
+                    </controls:DataGridTemplateColumn>
+                    <controls:DataGridTemplateColumn x:Uid="PriceHeaderString" Tag="Price" IsReadOnly="False" CanUserSort="True">
+                        <controls:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate x:DataType="local:Position" x:Name="PriceColumnDataTemplate">
+                                <TextBox x:Name="PriceColumnTextBox" Text="{x:Bind Price, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
+                            </DataTemplate>
+                        </controls:DataGridTemplateColumn.CellTemplate>
+                    </controls:DataGridTemplateColumn>
+                    <controls:DataGridTemplateColumn x:Uid="MarketValueHeaderString" Tag="MarketValue">
+                        <controls:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate x:DataType="local:Position">
+                                <TextBlock Text="{x:Bind MarketValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            </DataTemplate>
+                        </controls:DataGridTemplateColumn.CellTemplate>
+                    </controls:DataGridTemplateColumn>
+                    <controls:DataGridTemplateColumn x:Uid="CostBasisHeaderString" Tag="GrossBuy">
+                        <controls:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate x:DataType="local:Position">
+                                <TextBlock Text="{x:Bind GrossBuy}"/>
+                            </DataTemplate>
+                        </controls:DataGridTemplateColumn.CellTemplate>
+                    </controls:DataGridTemplateColumn>
+                    <controls:DataGridTemplateColumn x:Uid="ProfitLossHeaderString" Tag="ProfitLoss">
+                        <controls:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate x:DataType="local:Position">
+                                <TextBlock Text="{x:Bind ProfitLoss}"/>
+                            </DataTemplate>
+                        </controls:DataGridTemplateColumn.CellTemplate>
+                    </controls:DataGridTemplateColumn>
+                    <controls:DataGridTemplateColumn x:Uid="ProfitLossPercentHeaderString" Tag="ProfitLossPercent">
+                        <controls:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate x:DataType="local:Position">
+                                <TextBlock Text="{x:Bind ProfitLossPercent}"/>
+                            </DataTemplate>
+                        </controls:DataGridTemplateColumn.CellTemplate>
+                    </controls:DataGridTemplateColumn>
+                    <controls:DataGridTemplateColumn x:Uid="PositionHeaderString" Tag="CurrentQuantity">
+                        <controls:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate x:DataType="local:Position">
+                                <TextBlock Text="{x:Bind CurrentQuantity}"/>
+                            </DataTemplate>
+                        </controls:DataGridTemplateColumn.CellTemplate>
+                    </controls:DataGridTemplateColumn>
+                </controls:DataGrid.Columns>
+            </controls:DataGrid>
         </Grid>
 
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Button x:Name="BrowseCsvButton" x:Uid="BrowseCSVButtonString" FontSize="50" HorizontalAlignment="Center" Tapped="BrowseCsvButton_Tapped" Margin="25"/>
+        </Grid>
     </Grid>
 </Page>

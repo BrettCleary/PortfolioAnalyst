@@ -1,0 +1,94 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PortfolioAnalyst"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:chart="using:Syncfusion.UI.Xaml.Charts">
+
+
+    <Style x:Key="PageLIGHTStyle" TargetType="Page">
+        <Setter Property="Background" Value="{StaticResource LIGHTAcrylic}"/>
+    </Style>
+    <Style x:Key="PageDARKStyle" TargetType="Page">
+        <Setter Property="Background" Value="{StaticResource DARKAcrylic}"/>
+    </Style>
+
+    <Style x:Key="TextBlockLIGHTStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighLight}"/>
+    </Style>
+    <Style x:Key="TextBlockDARKStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
+    </Style>
+    
+    <Style x:Key="TextBoxLIGHTStyle" TargetType="TextBox">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighLight}"/>
+    </Style>
+    <Style x:Key="TextBoxDARKStyle" TargetType="TextBox">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
+    </Style>
+    
+    <Style x:Key="DataGridLIGHTStyle" TargetType="controls:DataGrid">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighLight}"/>
+        <Setter Property="AlternatingRowBackground" Value="{StaticResource BaseLowLIGHT}"/>
+    </Style>
+    <Style x:Key="DataGridDARKStyle" TargetType="controls:DataGrid">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
+        <Setter Property="AlternatingRowBackground" Value="{StaticResource BaseLowDARK}"/>
+    </Style>
+
+    <Style x:Key="SfChartLIGHTStyle" TargetType="chart:SfChart">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighLight}"/>
+    </Style>
+    <Style x:Key="SfChartDARKStyle" TargetType="chart:SfChart">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
+    </Style>
+    
+    <Style x:Key="DateAxisLIGHTStyle" TargetType="chart:DateTimeAxis">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighLight}"/>
+    </Style>
+    <Style x:Key="DateAxisDARKStyle" TargetType="chart:DateTimeAxis">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
+    </Style>
+    
+    <Style x:Key="NumAxisLIGHTStyle" TargetType="chart:NumericalAxis">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighLight}"/>
+    </Style>
+    <Style x:Key="NumAxisDARKStyle" TargetType="chart:NumericalAxis">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
+    </Style>
+
+    <Style x:Key="NavViewItemLIGHTStyle" TargetType="NavigationViewItem">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighLight}"/>
+    </Style>
+    <Style x:Key="NavViewItemDARKStyle" TargetType="NavigationViewItem">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
+    </Style>
+    
+    <Style x:Key="ComboBoxLIGHTStyle" TargetType="ComboBox">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighLight}"/>
+    </Style>
+    <Style x:Key="ComboBoxDARKStyle" TargetType="ComboBox">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
+    </Style>
+
+    <Style x:Key="NavigationViewItemSeparatorLIGHTStyle" TargetType="NavigationViewItemSeparator">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighLight}"/>
+    </Style>
+    <Style x:Key="NavigationViewItemSeparatorDARKStyle" TargetType="NavigationViewItemSeparator">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
+    </Style>
+
+    <Style x:Key="IconElementLIGHTStyle" TargetType="SymbolIcon">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighLight}"/>
+    </Style>
+    <Style x:Key="IconElementDARKStyle" TargetType="SymbolIcon">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
+    </Style>
+
+    <Style x:Key="ButtonLIGHTStyle" TargetType="Button">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighLight}"/>
+    </Style>
+    <Style x:Key="ButtonDARKStyle" TargetType="Button">
+        <Setter Property="Foreground" Value="{StaticResource BaseHighDark}"/>
+    </Style>
+</ResourceDictionary>

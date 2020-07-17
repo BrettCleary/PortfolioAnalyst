@@ -4,7 +4,8 @@
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
-  IgnorableNamespaces="uap mp">
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap mp rescap">
 
   <Identity
     Name="ff69270a-36c5-460e-b566-4fd9f0f640c8"
@@ -37,13 +38,15 @@
         Square44x44Logo="Assets\Square44x44Logo.png"
         Description="PortfolioAnalyst"
         BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
-        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\SmallTile.png" Square310x310Logo="Assets\LargeTile.png" ShortName="Portfolio Analyst"/>
+        <uap:SplashScreen Image="Assets\SplashScreen.png"  BackgroundColor="#64BFED"/>
       </uap:VisualElements>
     </Application>
   </Applications>
 
   <Capabilities>
+    <rescap:Capability Name="broadFileSystemAccess"/>
+    <rescap:Capability Name="documentsLibrary"/>
     <Capability Name="internetClient" />
   </Capabilities>
 </Package>

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Syncfusion.UI.Xaml.Charts;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,9 +24,50 @@ namespace PortfolioAnalyst
     /// </summary>
     public sealed partial class PerformanceGraphPage : Page
     {
+        PositionsAnalyzerModel PositionsModel;
+        public ObservableCollection<AccountValue> AccountValues { get; set; } = new ObservableCollection<AccountValue>();
         public PerformanceGraphPage()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            PositionsModel = (PositionsAnalyzerModel)e.Parameter;
+
+            foreach (AccountValue accVal in PositionsModel.CumulativeRealized)
+            {
+                AccountValues.Add(accVal);
+            }
+
+
+            LineSeries series1 = new LineSeries();
+            series1.XBindingPath = "time";
+            series1.YBindingPath = "value";
+            series1.Label = "acctvalues";
+            series1.ItemsSource = AccountValues;
+            DataContext = this;
+
+            series1.EnableAnimation = true;
+            AccountPerformanceChart.Series.Add(series1);
+
+            SetColorTheme(PositionsModel.AppData.ColorTheme);
+        }
+
+        private void SetColorTheme(ColorThemeEnum colorTheme)
+        {
+            string sfChartID = "SfChart" + colorTheme.ToString() + "Style";
+            Style sfChartStyle = (Style)Application.Current.Resources[sfChartID];
+            AccountPerformanceChart.Style = sfChartStyle;
+
+            string sfCatAxisID = "DateAxis" + colorTheme.ToString() + "Style";
+            Style sfCatAxisStyle = (Style)Application.Current.Resources[sfCatAxisID];
+            XAxisDateTime.Style = sfCatAxisStyle;
+
+            string sfNumAxisID = "NumAxis" + colorTheme.ToString() + "Style";
+            Style sfNumAxisStyle = (Style)Application.Current.Resources[sfNumAxisID];
+            YAxisNumerical.Style = sfNumAxisStyle;
         }
     }
 }

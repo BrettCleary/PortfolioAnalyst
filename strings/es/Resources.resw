@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AcctPerfString.Text" xml:space="preserve">
+    <value>Rendimiento de cuenta</value>
+  </data>
+  <data name="AllPositionsString.Text" xml:space="preserve">
+    <value>Todas las posiciones</value>
+  </data>
+  <data name="BrowseCSVButtonString.Content" xml:space="preserve">
+    <value>Busque el archivo CSV.</value>
+  </data>
+  <data name="ColorThemeString.Text" xml:space="preserve">
+    <value>Tema de color</value>
+  </data>
+  <data name="CostBasisHeaderString.Header" xml:space="preserve">
+    <value>Base de costo</value>
+  </data>
+  <data name="CostBasisString.Text" xml:space="preserve">
+    <value>Base de costo:</value>
+  </data>
+  <data name="CurrentPortfolioString.Text" xml:space="preserve">
+    <value>Portafolio Actual</value>
+  </data>
+  <data name="DarkString.Text" xml:space="preserve">
+    <value>Oscuro</value>
+  </data>
+  <data name="GraphString.Text" xml:space="preserve">
+    <value>Grafico</value>
+  </data>
+  <data name="GrossInvHeaderString.Header" xml:space="preserve">
+    <value>Inversión Bruta</value>
+  </data>
+  <data name="GrossPercentHeaderString.Header" xml:space="preserve">
+    <value>Porcentaje bruto</value>
+  </data>
+  <data name="GrossProfitHeaderString.Header" xml:space="preserve">
+    <value>Beneficio bruto</value>
+  </data>
+  <data name="GrossSalesHeaderString.Header" xml:space="preserve">
+    <value>Ventas brutas</value>
+  </data>
+  <data name="HomeString.Text" xml:space="preserve">
+    <value>Hogar</value>
+  </data>
+  <data name="IRRHeaderString.Header" xml:space="preserve">
+    <value>TIR</value>
+  </data>
+  <data name="LanguageString.Text" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="LightString.Text" xml:space="preserve">
+    <value>Ligero</value>
+  </data>
+  <data name="LoadingString.Text" xml:space="preserve">
+    <value>Cargando</value>
+  </data>
+  <data name="MarketValueHeaderString.Header" xml:space="preserve">
+    <value>Valor de mercado</value>
+  </data>
+  <data name="MarketValueString.Text" xml:space="preserve">
+    <value>Valor de mercado:</value>
+  </data>
+  <data name="MaxPosSizeString.Header" xml:space="preserve">
+    <value>Tamaño de posición máxima</value>
+  </data>
+  <data name="PositionHeaderString.Header" xml:space="preserve">
+    <value>Posición</value>
+  </data>
+  <data name="PriceHeaderString.Header" xml:space="preserve">
+    <value>Precio</value>
+  </data>
+  <data name="ProfitLossHeaderString.Header" xml:space="preserve">
+    <value>Pérdida de beneficios</value>
+  </data>
+  <data name="ProfitLossPercentHeaderString.Header" xml:space="preserve">
+    <value>Porcentaje de ganancias / pérdidas</value>
+  </data>
+  <data name="SetupButtonString.Content" xml:space="preserve">
+    <value>Preparar</value>
+  </data>
+  <data name="TickerHeaderString.Header" xml:space="preserve">
+    <value>Corazón</value>
+  </data>
+  <data name="UnrealizedPLPString.Text" xml:space="preserve">
+    <value>Porcentaje de ganancia / pérdida no realizada:</value>
+  </data>
+  <data name="UnrealizedPLString.Text" xml:space="preserve">
+    <value>Ganancias / Pérdidas no realizadas:</value>
+  </data>
+  <data name="WaitingForCsvString.Text" xml:space="preserve">
+    <value>Esperando archivo CSV.</value>
+  </data>
+  <data name="YourBestPlaysString.Text" xml:space="preserve">
+    <value>Tus mejores jugadas</value>
+  </data>
+</root>

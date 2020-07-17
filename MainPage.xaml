@@ -6,17 +6,38 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    
-    <NavigationView PaneDisplayMode="Top" x:Name="MainPageNavView" ItemInvoked="MainPageNavView_ItemInvoked">
+    x:Name="MainPagePage">
+
+    <Page.Resources>
+        <SolidColorBrush x:Name="PointerOverNavViewBrush" x:Key="NavigationViewItemForegroundPointerOver" Color="Red"/>
+        <SolidColorBrush x:Key="NavigationViewItemForegroundSelected" Color="Red"/>
+        <SolidColorBrush x:Key="NavigationViewItemForegroundSelectedPointerOver" Color="Red"/>
+        <SolidColorBrush x:Key="NavigationViewItemForegroundPressed" Color="Red"/>
+        <SolidColorBrush x:Key="NavigationViewItemForegroundSelectedPressed" Color="Red"/>
+        <AcrylicBrush x:Name="NavViewBackgroundBrush" x:Key="NavigationViewTopPaneBackground"
+            BackgroundSource="HostBackdrop"
+            TintColor="Black"
+            TintOpacity="0.8"/>
+        <SolidColorBrush x:Name="NavViewItemForegroundBrush" x:Key="NavigationViewItemForeground" Color="Red"/>
+    </Page.Resources>
+
+    <NavigationView PaneDisplayMode="Top" x:Name="MainPageNavView" ItemInvoked="MainPageNavView_ItemInvoked" IsBackButtonVisible="Collapsed">
         <NavigationView.MenuItems>
-            <NavigationViewItem Content="Home" Tag="HomeID"/>
-            <NavigationViewItemSeparator/>
-            <NavigationViewItem Content="Graph" Tag="GraphID"/>
-            <NavigationViewItem Content="All Positions" Tag="PosTableID"/>
-            <NavigationViewItem Content="Setup" Tag="SetupID"/>
+            <NavigationViewItem Tag="HomeID">
+                <TextBlock x:Name="HomeNavViewItem" x:Uid="HomeString"/>
+            </NavigationViewItem>
+            <!--NavigationViewItemSeparator>
+                <SymbolIcon Symbol=""
+            </NavigationViewItemSeparator-->
+            <NavigationViewItem Tag="GraphID">
+                <TextBlock x:Name="GraphNavViewItem" x:Uid="GraphString"/>
+            </NavigationViewItem>
+            <NavigationViewItem Tag="PosTableID">
+                <TextBlock x:Name="AllPosNavViewItem" x:Uid="AllPositionsString"/>
+            </NavigationViewItem>
+            <!--NavigationViewItem Content="Setup" Tag="SetupID"/-->
         </NavigationView.MenuItems>
-        
+
         <Frame x:Name="MainPageFrame">
             
         </Frame>
