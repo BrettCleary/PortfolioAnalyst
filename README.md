@@ -16,3 +16,5 @@ Performance based on closed trades is plotted.
 Current portfolio based on opened trades that have not been closed are tabulated with corresponding unrealized P/L.
 
 Past positions are grouped by ticker and analyzed. This performance is measured in terms of gross profit, gross % P/L, gross P/L, and IRR and tabulated on the main page.
+
+The app must be restarted to use the newly selected language.
