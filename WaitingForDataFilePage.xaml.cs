@@ -66,6 +66,7 @@ namespace PortfolioAnalyst
             string buttonID = "Button" + colorTheme.ToString() + "Style";
             Style buttonStyle = (Style)Application.Current.Resources[buttonID];
             BrowseCsvButton.Style = buttonStyle;
+            GenerateRandomButton.Style = buttonStyle;
         }
 
         private void Page_DragEnter(object sender, DragEventArgs e)
@@ -86,6 +87,11 @@ namespace PortfolioAnalyst
         private void CsvFileLoadGrid_Drop(object sender, DragEventArgs e)
         {
 
+        }
+
+        private void GenerateRandomButton_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            AppData.CsvFilePath = "generateRandom";
         }
     }
 }

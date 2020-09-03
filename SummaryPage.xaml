@@ -75,7 +75,7 @@
                 MaxColumnWidth="500"
                 GridLinesVisibility="None"
                 IsReadOnly="True"
-                ItemsSource="{x:Bind PositionsModel.Positions}"
+                ItemsSource="{x:Bind PositionsModel.ExitedPositions}"
                 CanUserResizeColumns="True"
                 PointerEntered="AllPositionsDataGrid_PointerEntered"
                 PointerExited="AllPositionsDataGrid_PointerExited"

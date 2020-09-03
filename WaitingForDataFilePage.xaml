@@ -16,6 +16,7 @@
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock x:Name="WaitingTextBlock" x:Uid="WaitingForCsvString" FontSize="100" HorizontalAlignment="Center"/>
             <Button x:Name="BrowseCsvButton" x:Uid="BrowseCSVButtonString" FontSize="50" HorizontalAlignment="Center" Tapped="BrowseCsvButton_Tapped" Margin="25"/>
+            <Button x:Name="GenerateRandomButton" x:Uid="GenerateRandomButtonString" FontSize="50" HorizontalAlignment="Center" Tapped="GenerateRandomButton_Tapped" Margin="25"/>
         </StackPanel>
     </Grid>
 </Page>
