@@ -1,6 +1,10 @@
 # PortfolioAnalyst
 ## A UWP app to analyze investing performance from raw data of closed trades.
 
+<!-- ABOUT THE PROJECT -->
+## About The Project
+[Product Name Screen Shot][acctPerfDark]
+
 ### Trade Data Format
 Data format is expected in the following CSV format:
 
@@ -20,3 +24,13 @@ Past positions are grouped by ticker and analyzed. This performance is measured 
 The app must be restarted to use the newly selected language.
 
 The trades.csv file must be located inside the documents folder or the application's local folder.
+
+
+
+
+[acctPerfDark]: Images/AcctPerfDark.jpg
+[acctPerfLight]: Images/AcctPerfLight.jpg
+[allPosDark]: Images/AllPosDark.jpg
+[allPosLight]: Images/AllPosLight.jpg
+[sumPageDark]: Images/SummaryPageDark.jpg
+[sumPageLight]: Images/SummaryPageLight.jpg
