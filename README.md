@@ -3,7 +3,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-[Product Name Screen Shot][acctPerfDark]
+![Product Name Screen Shot][acctPerfDark]
 
 ### Trade Data Format
 Data format is expected in the following CSV format:
