@@ -15,6 +15,7 @@
 
 ### Built With
 * [UWP](https://docs.microsoft.com/en-us/windows/uwp/)
+* [Syncfusion](https://help.syncfusion.com/uwp/overview)
 
 ### Trade Data Format
 Data format is expected in the following CSV format:
