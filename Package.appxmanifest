@@ -8,15 +8,15 @@
   IgnorableNamespaces="uap mp rescap">
 
   <Identity
-    Name="ff69270a-36c5-460e-b566-4fd9f0f640c8"
-    Publisher="CN=brett"
-    Version="1.0.0.0" />
+    Name="46691BrettCleary.PortfolioAnalyst"
+    Publisher="CN=7C3B6D46-804C-412B-9623-3FBFD8B5B064"
+    Version="1.0.5.0" />
 
-  <mp:PhoneIdentity PhoneProductId="ff69270a-36c5-460e-b566-4fd9f0f640c8" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="7211c323-f792-4a3f-85fd-7cd2b672e889" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>PortfolioAnalyst</DisplayName>
-    <PublisherDisplayName>brett</PublisherDisplayName>
+    <DisplayName>Portfolio Analyst</DisplayName>
+    <PublisherDisplayName>Brett Cleary</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -33,7 +33,7 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="PortfolioAnalyst.App">
       <uap:VisualElements
-        DisplayName="PortfolioAnalyst"
+        DisplayName="Portfolio Analyst"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
         Description="PortfolioAnalyst"
@@ -45,8 +45,6 @@
   </Applications>
 
   <Capabilities>
-    <rescap:Capability Name="broadFileSystemAccess"/>
     <rescap:Capability Name="documentsLibrary"/>
-    <Capability Name="internetClient" />
   </Capabilities>
 </Package>
