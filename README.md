@@ -18,13 +18,19 @@
 * [Syncfusion](https://help.syncfusion.com/uwp/overview)
 
 ### Trade Data Format
+Csv file is selected from AppData or Documents folder.
+
 Data format is expected in the following CSV format:
 
 Date, Ticker, Order, Price, Quantity, Total
 
-MM/DD/YYYY, TICKER, buy/purchase/sell/dividend, double, double, double
+MM/DD/YYYY, Ticker, buy/purchase/sell/dividend, Price, Quantity, Total
+
+Example: "2/12/2020, NVDA, buy, 400, 100, 40000"
 
 If total is omitted, it will be calculated from price and quantity.
+
+If consecutive rows in the csv file have the same Ticker, they will be analyzed together.
 
 ### Usage
 This UWP app requires access to documents to load trades. 
