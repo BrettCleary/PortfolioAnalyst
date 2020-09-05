@@ -62,6 +62,7 @@ namespace PortfolioAnalyst
             string textBlockID = "TextBlock" + colorTheme.ToString() + "Style";
             Style textBlockStyle = (Style)Application.Current.Resources[textBlockID];
             WaitingTextBlock.Style = textBlockStyle;
+            TradesFormatTextBlock.Style = textBlockStyle;
 
             string buttonID = "Button" + colorTheme.ToString() + "Style";
             Style buttonStyle = (Style)Application.Current.Resources[buttonID];

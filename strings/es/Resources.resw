@@ -195,8 +195,38 @@
   <data name="SetupButtonString.Content" xml:space="preserve">
     <value>Preparar</value>
   </data>
+  <data name="String" xml:space="preserve">
+    <value />
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="String2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="String3" xml:space="preserve">
+    <value />
+  </data>
+  <data name="String4" xml:space="preserve">
+    <value />
+  </data>
+  <data name="String5" xml:space="preserve">
+    <value />
+  </data>
+  <data name="String6" xml:space="preserve">
+    <value />
+  </data>
   <data name="TickerHeaderString.Header" xml:space="preserve">
     <value>Corazón</value>
+  </data>
+  <data name="TradesFormatString.Text" xml:space="preserve">
+    <value>Seleccione un archivo csv de su carpeta AppData o Documentos.
+Se espera el formato de datos en el siguiente formato CSV:
+Fecha, Ticker, Orden, Precio, Cantidad, Total
+MM / DD / AAAA, Ticker, compra / compra / venta / dividendo, precio, cantidad, total
+Ejemplo: "2/12/2020, NVDA, comprar, 400, 100, 40000"
+Si se omite el total, se calculará a partir del precio y la cantidad.
+Si filas consecutivas en el archivo csv tienen el mismo TICKER, se analizarán juntas.</value>
   </data>
   <data name="UnrealizedPLPString.Text" xml:space="preserve">
     <value>Porcentaje de ganancia / pérdida no realizada:</value>

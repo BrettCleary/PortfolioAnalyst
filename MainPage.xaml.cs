@@ -74,12 +74,20 @@ namespace PortfolioAnalyst
             if (e.PropertyName == "CsvFilePath")
             {
                 MainPageFrame.Navigate(typeof(LoadScreenPage), AppData, new DrillInNavigationTransitionInfo());
-                PositionsModel = await PositionsAnalyzerModel.CreateAsync(AppData);
+                try
+                {
+                    PositionsModel = await PositionsAnalyzerModel.CreateAsync(AppData);
+                    EnableNavViewItems(true);
+                    SetSettingsColor();
+                    MainPageFrame.Navigate(typeof(SummaryPage), PositionsModel, new DrillInNavigationTransitionInfo());
+                }
+                catch
+                {
+                    MainPageFrame.Navigate(typeof(WaitingForDataFilePage),AppData, new DrillInNavigationTransitionInfo());
+                }
+                
+                
 
-                EnableNavViewItems(true);
-                SetSettingsColor();
-
-                MainPageFrame.Navigate(typeof(SummaryPage), PositionsModel, new DrillInNavigationTransitionInfo());
             }
         }
 

@@ -201,6 +201,15 @@
   <data name="TickerHeaderString.Header" xml:space="preserve">
     <value>Ticker</value>
   </data>
+  <data name="TradesFormatString.Text" xml:space="preserve">
+    <value>Please select a csv file from your AppData or Documents folder. 
+Data format is expected in the following CSV format: 
+Date, Ticker, Order, Price, Quantity, Total
+MM/DD/YYYY, Ticker, buy/purchase/sell/dividend, Price, Quantity, Total 
+Example: "2/12/2020, NVDA, buy, 400, 100, 40000"
+If total is omitted, it will be calculated from price and quantity.
+If consecutive rows in the csv file have the same TICKER, they will be analyzed together.</value>
+  </data>
   <data name="UnrealizedPLPString.Text" xml:space="preserve">
     <value>Unrealized Profit/Loss Percent:</value>
   </data>

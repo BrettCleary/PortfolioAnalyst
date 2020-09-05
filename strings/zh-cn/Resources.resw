@@ -195,8 +195,38 @@
   <data name="SetupButtonString.Content" xml:space="preserve">
     <value>利润/亏损百分比</value>
   </data>
+  <data name="String" xml:space="preserve">
+    <value />
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="String2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="String3" xml:space="preserve">
+    <value />
+  </data>
+  <data name="String4" xml:space="preserve">
+    <value />
+  </data>
+  <data name="String5" xml:space="preserve">
+    <value />
+  </data>
+  <data name="String6" xml:space="preserve">
+    <value />
+  </data>
   <data name="TickerHeaderString.Header" xml:space="preserve">
     <value>建立</value>
+  </data>
+  <data name="TradesFormatString.Text" xml:space="preserve">
+    <value>请从您的AppData或Documents文件夹中选择一个csv文件。
+数据格式应采用以下CSV格式：
+日期，股票行情，订单，价格，数量，总计
+MM / DD / YYYY，股票代码，购买/购买/出售/股息，价格，数量，总计
+示例：“ 2020年2月12日，NVDA，购买，400、100、40000”
+如果省略总计，则将从价格和数量计算得出。
+如果csv文件中的连续行具有相同的TICKER，则将一起分析它们</value>
   </data>
   <data name="UnrealizedPLPString.Text" xml:space="preserve">
     <value>股票代号</value>
